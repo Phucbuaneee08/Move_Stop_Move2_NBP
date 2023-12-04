@@ -15,11 +15,14 @@ public class Player : Character
 
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
+      
+        base.Update();
         if (Input.GetMouseButton(0))
         {
             isMove = true;
+            ChangeState(new RunState());
         }
         if(Input.GetMouseButtonUp(0))
         {
@@ -34,9 +37,9 @@ public class Player : Character
     }
     private void Stop()
     {
-        ChangeAnim(Const.ANIM_IDLE);
         rb.velocity = Vector3.zero;
     }
+
     private void Move()
     {
         ChangeAnim(Const.ANIM_RUN);

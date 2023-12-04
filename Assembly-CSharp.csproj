@@ -78,6 +78,7 @@
     <Compile Include="Assets\_Game\Scripts\_GamePlay\Character\StateMachine\DeadState.cs" />
     <Compile Include="Assets\_Game\Scripts\_GamePlay\Character\Character.cs" />
     <Compile Include="Assets\_Game\Scripts\_GamePlay\Character\Player.cs" />
+    <Compile Include="Assets\_Game\Scripts\_GamePlay\Character\StateMachine\RunState.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

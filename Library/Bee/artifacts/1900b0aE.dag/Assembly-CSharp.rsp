@@ -365,6 +365,7 @@
 "Assets/_Game/Scripts/_GamePlay/Character/StateMachine/IdleState.cs"
 "Assets/_Game/Scripts/_GamePlay/Character/StateMachine/IState.cs"
 "Assets/_Game/Scripts/_GamePlay/Character/StateMachine/PatrolState.cs"
+"Assets/_Game/Scripts/_GamePlay/Character/StateMachine/RunState.cs"
 "Assets/_Game/Scripts/_GamePlay/Data/Const.cs"
 "Assets/_Game/Scripts/_GamePlay/Weapons/Knife.cs"
 "Assets/_Game/Scripts/_GamePlay/Weapons/Weapon.cs"

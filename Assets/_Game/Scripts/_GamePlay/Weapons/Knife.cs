@@ -21,6 +21,7 @@ public class Knife : Weapon
     {
         StartCoroutine(DestroyWeapon());
     }
+
     private IEnumerator DestroyWeapon()
     {
         yield return new WaitForSeconds(4f);

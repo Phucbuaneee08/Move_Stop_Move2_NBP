@@ -6,7 +6,7 @@ public class IdleState : IState
 {
     public void OnEnter(Character t)
     {
-        t.ChangeAnim(Const.ANIM_IDLE);
+        t.ChangeAnim("idle");
         t.ChooseTarget();
     }
 

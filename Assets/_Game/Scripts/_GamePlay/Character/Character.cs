@@ -20,7 +20,7 @@ public class Character : MonoBehaviour
     
 
 
-    private void Update()
+    public virtual void Update()
     {
         if (currentState != null)
         {
@@ -61,7 +61,8 @@ public class Character : MonoBehaviour
     public void Attack()
     {
         ChangeAnim(Const.ANIM_ATTACK);
-        Instantiate(weaponPrefab, transform.position + new Vector3(0,1,1.2f), transform.rotation);
+        Weapon wp = Instantiate(weaponPrefab, transform.position + new Vector3(0,1,1.2f), transform.rotation);
+        wp.SetOwner(this);
     }
     public void FocusTarget()
     {
@@ -74,7 +75,10 @@ public class Character : MonoBehaviour
     {
         ChangeAnim(Const.ANIM_IDLE);
     }
-
+    public void SetAttacker(Character attacker)
+    {
+        this.currentAttacker = attacker;
+    }
     public void ChooseTarget()
     {
 
@@ -84,18 +88,22 @@ public class Character : MonoBehaviour
 
             ChangeState(new AttackState());
         }
-        
-       
     }
+   
     public void OnDead()
     {
+        if (currentAttacker.CheckTarget(this))
+        {
+            currentAttacker.RemoveTarget(this);
+        }
         ChangeAnim(Const.ANIM_DEAD);
         StartCoroutine(OnDespawn());
     }
     private IEnumerator OnDespawn()
     {
+        Debug.Log("Dead");
         yield return new WaitForSeconds(2f);
-        Destroy(targets[0].gameObject);
+        Destroy(this.gameObject);   
     }
    
     /********************************
