@@ -1,3 +1,4 @@
+using Scriptable;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,44 +12,57 @@ public class Player : Character
     private Vector3 direction;
     
     private float rotateSpeed = 10f;
-    private bool isMove;
+    private void Start()
+    {
+        OnInit();
+        ChangePant(PantName.Dabao);
+        ChangeWeapon(WeaponName.Boomerang);
+        ChangeHat(HatName.Crown);
+        ChangeShield(ShieldName.Khien);
+    }
 
-
-    // Update is called once per frame
     public override void Update()
     {
-      
         base.Update();
-        if (Input.GetMouseButton(0))
-        {
-            isMove = true;
-            ChangeState(new RunState());
-        }
-        if(Input.GetMouseButtonUp(0))
-        {
-            isMove = false;
-            ChangeState(new IdleState());
-        }
     }
+
+
     private void FixedUpdate()
     {
-        if (isMove) Move();
-        else Stop();
+        Move();
     }
-    private void Stop()
-    {
-        rb.velocity = Vector3.zero;
-    }
-
     private void Move()
     {
-        ChangeAnim(Const.ANIM_RUN);
+        
         moveVector.x = variableJoystick.Horizontal;
         moveVector.z = variableJoystick.Vertical;
+
+
         direction = Vector3.RotateTowards(transform.forward, moveVector, rotateSpeed * Time.deltaTime, 0.0f);
+        if(moveVector.magnitude >0.01f)
+        {
+            isAttack = false;
+            ChangeState(new RunState());
+            transform.rotation = Quaternion.LookRotation(direction);
+            rb.velocity = direction* moveSpeed * Time.deltaTime;
+        }
+        else if(!isAttack)
+        {
+            ChangeState(new IdleState());
+            rb.velocity = Vector3.zero;
+        }
+        
 
-        transform.rotation = Quaternion.LookRotation(direction);
-        rb.velocity = direction* moveSpeed * Time.deltaTime;
-
+    }
+    public override void OnDead()
+    {
+        base.OnDead();
+    }
+    public override void ResetAttack()
+    {
+        base.ResetAttack();
+        isAttack = false;
+        SetActiveCurrentWeapon(true);
+        
     }
 }

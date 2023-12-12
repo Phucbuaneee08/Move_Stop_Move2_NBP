@@ -13,15 +13,11 @@ public class AttackRange : MonoBehaviour
            
             Character target = Cache.GetCharacter(other);
             if (target != owner)
-            { 
-               
+            {    
                 Character character = other.GetComponent<Character>();
-
-                if (character != null)
-                {
-                    Debug.Log("not null");
-                }
-                owner.AddTarget(target);
+               
+                owner.AddTarget(target); 
+           
             }
         }
     }

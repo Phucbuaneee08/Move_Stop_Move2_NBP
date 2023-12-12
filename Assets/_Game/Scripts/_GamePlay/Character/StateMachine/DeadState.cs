@@ -9,7 +9,7 @@ public class DeadState : IState
     
     public void OnEnter(Character t)
     {
-       
+        t.ChangeAnim(Const.ANIM_DEAD);
     }
 
     public void OnExecute(Character t)

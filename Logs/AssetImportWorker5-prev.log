@@ -1,0 +1,415 @@
+Using pre-set license
+Built from '2021.3/staging' branch; Version is '2021.3.32f1 (3b9dae9532f5) revision 3906990'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit CoreSingleLanguage' Language: 'en' Physical Memory: 16219 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity 2021.3.32f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker5
+-projectPath
+C:/Users/Laptop cua Phuc/MoveStopMove_NBP
+-logFile
+Logs/AssetImportWorker5.log
+-srvPort
+63325
+Successfully changed project path to: C:/Users/Laptop cua Phuc/MoveStopMove_NBP
+C:/Users/Laptop cua Phuc/MoveStopMove_NBP
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [33712] Host "[IP] 192.168.0.1 [Port] 0 [Flags] 2 [Guid] 1952600598 [EditorId] 1952600598 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-6POE2SJS) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [33712] Host "[IP] 192.168.0.1 [Port] 0 [Flags] 2 [Guid] 1952600598 [EditorId] 1952600598 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-6POE2SJS) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+[Physics::Module] Initialized MultithreadedJobDispatcher with {0} workers.
+Refreshing native plugins compatible for Editor in 96.45 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.32f1 (3b9dae9532f5)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity 2021.3.32f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/Laptop cua Phuc/MoveStopMove_NBP/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1650 Ti (ID=0x1f95)
+    Vendor:   NVIDIA
+    VRAM:     3962 MB
+    Driver:   31.0.15.1691
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity 2021.3.32f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity 2021.3.32f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity 2021.3.32f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56592
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity 2021.3.32f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.006519 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 78.54 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.679 seconds
+Domain Reload Profiling:
+	ReloadAssembly (680ms)
+		BeginReloadAssembly (106ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (470ms)
+			LoadAssemblies (103ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (110ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (29ms)
+			SetupLoadedEditorAssemblies (286ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (8ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (79ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (127ms)
+				ProcessInitializeOnLoadMethodAttributes (72ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.014728 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.68 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Package Manager log level set to [2]
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Completed reload, in  1.824 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1825ms)
+		BeginReloadAssembly (179ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (17ms)
+		EndReloadAssembly (1523ms)
+			LoadAssemblies (158ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (297ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (54ms)
+			SetupLoadedEditorAssemblies (1029ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (92ms)
+				ProcessInitializeOnLoadAttributes (894ms)
+				ProcessInitializeOnLoadMethodAttributes (25ms)
+				AfterProcessingInitializeOnLoad (12ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (9ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 0.85 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3348 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 48 unused Assets / (119.3 KB). Loaded Objects now: 3798.
+Memory consumption went from 120.1 MB to 120.0 MB.
+Total: 4.966000 ms (FindLiveObjects: 0.486400 ms CreateObjectMapping: 0.543600 ms MarkObjects: 3.818100 ms  DeleteObjects: 0.116600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:CustomObjectIndexerAttribute: bc11b3a6c3213fcdd17b65e7da85e133 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 164142.216487 seconds.
+  path: Assets/_Game/ScriptableObjects/Hat/HatType/Arrow.asset
+  artifactKey: Guid(6bb4fd30fd2b1d94282426ad4e1136e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/_Game/ScriptableObjects/Hat/HatType/Arrow.asset using Guid(6bb4fd30fd2b1d94282426ad4e1136e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3bb79df7607e5caf7a0feb5ff64d8374') in 0.031729 seconds 
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.011938 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.72 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Completed reload, in  1.785 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1785ms)
+		BeginReloadAssembly (167ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (35ms)
+		EndReloadAssembly (1523ms)
+			LoadAssemblies (122ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (295ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (46ms)
+			SetupLoadedEditorAssemblies (1056ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (78ms)
+				ProcessInitializeOnLoadAttributes (936ms)
+				ProcessInitializeOnLoadMethodAttributes (23ms)
+				AfterProcessingInitializeOnLoad (11ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.91 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3341 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 31 unused Assets / (93.6 KB). Loaded Objects now: 3815.
+Memory consumption went from 119.7 MB to 119.6 MB.
+Total: 3.672800 ms (FindLiveObjects: 0.286700 ms CreateObjectMapping: 0.207000 ms MarkObjects: 3.139800 ms  DeleteObjects: 0.038100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:CustomObjectIndexerAttribute: bc11b3a6c3213fcdd17b65e7da85e133 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 222.852117 seconds.
+  path: Assets/_Game/Resources/Bitgem/Cube_World/Tree/Prefabs/_example_hollow_log.prefab
+  artifactKey: Guid(fcdc7dbb4ddbc48049d04b43834f3dfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/_Game/Resources/Bitgem/Cube_World/Tree/Prefabs/_example_hollow_log.prefab using Guid(fcdc7dbb4ddbc48049d04b43834f3dfc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '40dace7e5400e1fa1ce424f3bcf19114') in 0.185752 seconds 
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000057 seconds.
+  path: Assets/_Game/Resources/Bitgem/Cube_World/Tree/Source/_example_tree.fbx
+  artifactKey: Guid(4fe08cfe9a50e48ae9c433976188ec45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/_Game/Resources/Bitgem/Cube_World/Tree/Source/_example_tree.fbx using Guid(4fe08cfe9a50e48ae9c433976188ec45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '75c71be113efd8feb29c9f5c9bf7db86') in 0.178382 seconds 
+Number of asset objects unloaded after import = 12
+========================================================================
+Received Import Request.
+  Time since last request: 7.700530 seconds.
+  path: Assets/_Game/Resources/Bitgem/Cube_World/Christmas/Prefab/bauble_large_color1.prefab
+  artifactKey: Guid(faa4f925131b045ae86d2adec59bbbb6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/_Game/Resources/Bitgem/Cube_World/Christmas/Prefab/bauble_large_color1.prefab using Guid(faa4f925131b045ae86d2adec59bbbb6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '79773b6bcb13c3f17fcae34af9d4e9c6') in 0.062121 seconds 
+Number of asset objects unloaded after import = 22
+========================================================================
+Received Import Request.
+  Time since last request: 0.000048 seconds.
+  path: Assets/_Game/Resources/Bitgem/Cube_World/Christmas/Source/bauble_large_color2.fbx
+  artifactKey: Guid(6bfcc9b5c579e4621a7f4d181d988738) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/_Game/Resources/Bitgem/Cube_World/Christmas/Source/bauble_large_color2.fbx using Guid(6bfcc9b5c579e4621a7f4d181d988738) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33348ffa8667af4fa5df1c5b8c8363e4') in 0.084725 seconds 
+Number of asset objects unloaded after import = 27
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/_Game/Resources/Bitgem/Cube_World/Christmas/Source/bauble_large_color2_ornate.fbx
+  artifactKey: Guid(be1447dec586a4240a005655f4828a1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/_Game/Resources/Bitgem/Cube_World/Christmas/Source/bauble_large_color2_ornate.fbx using Guid(be1447dec586a4240a005655f4828a1b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aff01daca54e22d9cf9deb67cce432f1') in 0.062735 seconds 
+Number of asset objects unloaded after import = 27
+========================================================================
+Received Import Request.
+  Time since last request: 16.282735 seconds.
+  path: Assets/_Game/Resources/Asset/Internship_BT4_MoveStopMove-20221110T015023Z-001/Internship_BT4_MoveStopMove/3D/CharSkin/Pants/Quần/dabao.png
+  artifactKey: Guid(287a9e32f6e2b874c80e123cf45acd2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/_Game/Resources/Asset/Internship_BT4_MoveStopMove-20221110T015023Z-001/Internship_BT4_MoveStopMove/3D/CharSkin/Pants/Quần/dabao.png using Guid(287a9e32f6e2b874c80e123cf45acd2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f97a618ea561a4e9a00885fa18417a31') in 0.189834 seconds 
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 41.454293 seconds.
+  path: Assets/_Game/Resources/Bitgem/Cube_World/Wood/Prefabs/fence.prefab
+  artifactKey: Guid(008fc6b0fac26a241a128d3d7bc37d24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/_Game/Resources/Bitgem/Cube_World/Wood/Prefabs/fence.prefab using Guid(008fc6b0fac26a241a128d3d7bc37d24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '418b495eee211759970495a7dbea9dfd') in 0.093251 seconds 
+Number of asset objects unloaded after import = 22
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/_Game/Resources/Bitgem/Cube_World/Wood/Source/fence_pole_wood_light.fbx
+  artifactKey: Guid(b58bafe64d3ea3a49b2883bdd492d237) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/_Game/Resources/Bitgem/Cube_World/Wood/Source/fence_pole_wood_light.fbx using Guid(b58bafe64d3ea3a49b2883bdd492d237) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9dcea626ecb0c1f0bbbfa38ba28c4e11') in 0.113352 seconds 
+Number of asset objects unloaded after import = 25
+========================================================================
+Received Import Request.
+  Time since last request: 1.661107 seconds.
+  path: Assets/_Game/Resources/Bitgem/Cube_World/Mine_Rail/Prefabs/rail_tracks_cross.prefab
+  artifactKey: Guid(226238c9a6891bb4fbf8c4a3a6a006da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/_Game/Resources/Bitgem/Cube_World/Mine_Rail/Prefabs/rail_tracks_cross.prefab using Guid(226238c9a6891bb4fbf8c4a3a6a006da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '471b38bab17cb02806300035e2c56540') in 0.083719 seconds 
+Number of asset objects unloaded after import = 22
+========================================================================
+Received Import Request.
+  Time since last request: 6.061341 seconds.
+  path: Assets/_Game/Resources/Bitgem/Cube_World/Powerups/Prefabs/block_heart.prefab
+  artifactKey: Guid(a9c386c6817ed0f499c31ac2254d98d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/_Game/Resources/Bitgem/Cube_World/Powerups/Prefabs/block_heart.prefab using Guid(a9c386c6817ed0f499c31ac2254d98d0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b3e3872efed729cccc1a0bbed3f9fa90') in 0.036106 seconds 
+Number of asset objects unloaded after import = 22
+========================================================================
+Received Import Request.
+  Time since last request: 0.000051 seconds.
+  path: Assets/_Game/Resources/Bitgem/Cube_World/Powerups/Source/powerup_heart_1.fbx
+  artifactKey: Guid(e31166f58ac56e04cb76745745c49cd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/_Game/Resources/Bitgem/Cube_World/Powerups/Source/powerup_heart_1.fbx using Guid(e31166f58ac56e04cb76745745c49cd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5f33b849252e39834af007fbdb2163e6') in 0.067353 seconds 
+Number of asset objects unloaded after import = 25
+========================================================================
+Received Import Request.
+  Time since last request: 0.809601 seconds.
+  path: Assets/_Game/Resources/Bitgem/Cube_World/Mining/Source/spear_diamond.fbx
+  artifactKey: Guid(07df704f2a5e20a4ca71a8541e1c71ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/_Game/Resources/Bitgem/Cube_World/Mining/Source/spear_diamond.fbx using Guid(07df704f2a5e20a4ca71a8541e1c71ff) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd59152b9434394fc2dfc457493a4d807') in 0.039969 seconds 
+Number of asset objects unloaded after import = 25
+========================================================================
+Received Import Request.
+  Time since last request: 0.240978 seconds.
+  path: Assets/_Game/Resources/Bitgem/Cube_World/Mining/Source/spear_metal.fbx
+  artifactKey: Guid(c47f97438a9fd354395890cca2f7d4be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/_Game/Resources/Bitgem/Cube_World/Mining/Source/spear_metal.fbx using Guid(c47f97438a9fd354395890cca2f7d4be) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '325bbe607c02e6278da446c25ffe7707') in 0.055616 seconds 
+Number of asset objects unloaded after import = 25
+========================================================================
+Received Import Request.
+  Time since last request: 6.891000 seconds.
+  path: Assets/_Game/Resources/Bitgem/Cube_World/Wood/Source/door_hatch_wood.fbx
+  artifactKey: Guid(872efaa519d4f0f4ea37cef55934f5b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/_Game/Resources/Bitgem/Cube_World/Wood/Source/door_hatch_wood.fbx using Guid(872efaa519d4f0f4ea37cef55934f5b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3bf5a5562458befd21dc1d2cb7b64c85') in 0.092106 seconds 
+Number of asset objects unloaded after import = 25
+========================================================================
+Received Import Request.
+  Time since last request: 11.875449 seconds.
+  path: Assets/_Game/Resources/Bitgem/Jungle_Cube/Prefabs/flower_single_yellow_LOD_group.prefab
+  artifactKey: Guid(0adc47af9293e41858d541f9c5a8ff74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/_Game/Resources/Bitgem/Jungle_Cube/Prefabs/flower_single_yellow_LOD_group.prefab using Guid(0adc47af9293e41858d541f9c5a8ff74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a275bf0d40d8cbf8afd030ed8dad9f17') in 0.089383 seconds 
+Number of asset objects unloaded after import = 22
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/_Game/Resources/Bitgem/Jungle_Cube/Source/flower_trio_yellow_LOD_group.fbx
+  artifactKey: Guid(afa038ed341bb458f92f98d8d901abe5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/_Game/Resources/Bitgem/Jungle_Cube/Source/flower_trio_yellow_LOD_group.fbx using Guid(afa038ed341bb458f92f98d8d901abe5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f1177a8e8f179b4281012e9207a318be') in 0.096163 seconds 
+Number of asset objects unloaded after import = 22
+========================================================================
+Received Import Request.
+  Time since last request: 11.976293 seconds.
+  path: Assets/_Game/Resources/Bitgem/Cube_World/Tower_Defense/Prefabs/generator_head_lvl1.prefab
+  artifactKey: Guid(8957fee14280340d59e29b877c882d9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/_Game/Resources/Bitgem/Cube_World/Tower_Defense/Prefabs/generator_head_lvl1.prefab using Guid(8957fee14280340d59e29b877c882d9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2b4947e02142fd9c01dc08e1548e88dd') in 0.033738 seconds 
+Number of asset objects unloaded after import = 22
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/_Game/Resources/Bitgem/Cube_World/Tower_Defense/Prefabs/generator_head_lvl2.prefab
+  artifactKey: Guid(1e71072017e9f4274927aa324e3e9fc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/_Game/Resources/Bitgem/Cube_World/Tower_Defense/Prefabs/generator_head_lvl2.prefab using Guid(1e71072017e9f4274927aa324e3e9fc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db0307dd924d0cbc0b839217651ef138') in 0.032448 seconds 
+Number of asset objects unloaded after import = 22
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/_Game/Resources/Bitgem/Cube_World/Tower_Defense/Prefabs/generator_head_lvl3.prefab
+  artifactKey: Guid(a29983a4e2a5d4e07b857f4d67e2b4bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/_Game/Resources/Bitgem/Cube_World/Tower_Defense/Prefabs/generator_head_lvl3.prefab using Guid(a29983a4e2a5d4e07b857f4d67e2b4bd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '37d722f11d2eae7384409d536ecfaf83') in 0.028392 seconds 
+Number of asset objects unloaded after import = 22
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/_Game/Resources/Bitgem/Cube_World/Tower_Defense/Source/generator_head_lvl2.fbx
+  artifactKey: Guid(343bba55439c04b7d8c23ea02f054e5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/_Game/Resources/Bitgem/Cube_World/Tower_Defense/Source/generator_head_lvl2.fbx using Guid(343bba55439c04b7d8c23ea02f054e5e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '913bd86d6cfd096ad78fd7077add58b9') in 0.074742 seconds 
+Number of asset objects unloaded after import = 25
+========================================================================
+Received Import Request.
+  Time since last request: 14.430411 seconds.
+  path: Assets/_Game/Resources/Bitgem/Jungle_Cube/Source/block_rail1_LOD_group.fbx
+  artifactKey: Guid(00396c9410b5e4669b8a3a42e80822b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/_Game/Resources/Bitgem/Jungle_Cube/Source/block_rail1_LOD_group.fbx using Guid(00396c9410b5e4669b8a3a42e80822b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39ea55339c40b0bf249e529916fba6e9') in 0.166694 seconds 
+Number of asset objects unloaded after import = 27
+========================================================================
+Received Import Request.
+  Time since last request: 0.735076 seconds.
+  path: Assets/_Game/Resources/Bitgem/Jungle_Cube/Source/branch_L_LOD_group.fbx
+  artifactKey: Guid(3b4b450adc1a74f1296977f0427188a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/_Game/Resources/Bitgem/Jungle_Cube/Source/branch_L_LOD_group.fbx using Guid(3b4b450adc1a74f1296977f0427188a1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2bb8ca5eeedd422e350aab12506ead62') in 0.042187 seconds 
+Number of asset objects unloaded after import = 22
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
