@@ -5,22 +5,22 @@ using UnityEditor;
 using UnityEngine;
 using static UnityEditor.LightingExplorerTableColumn;
 
+
 namespace Scriptable
 {
     public enum HatName
     {
-        Arrow = 0,
-        Cowboy = 1,
-        Crown = 2,
-        Ear = 3,
-        Hat = 4,
-        Hat_Cap = 5,
-        Hat_Yellow = 6,
-        Headphone = 7,
-        Rau = 8,
+        Arrow = PoolType.HAT_Arrow,
+        Cowboy = PoolType.HAT_Cowboy,
+        Crown = PoolType.HAT_Crown,
+        Ear = PoolType.HAT_Ear,
+        Hat = PoolType.HAT_Police,
+        Hat_Cap = PoolType.HAT_Cap,
+        Hat_Yellow = PoolType.HAT_StrawHat,
+        Headphone = PoolType.HAT_Headphone,
     }
 
-    [CreateAssetMenu(menuName = "HatData")]
+    [CreateAssetMenu(fileName = "HatData", menuName = "ScriptableObjects/Data/HatData", order = 1)]
     public class HatData : ScriptableObject
     {
 

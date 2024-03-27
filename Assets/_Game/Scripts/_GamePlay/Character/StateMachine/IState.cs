@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IState
 {
-    void OnEnter(Character t);
-    void OnExecute(Character t);
-    void OnExit(Character t);
+    void OnEnter(Bot t);
+    void OnExecute(Bot t);
+    void OnExit(Bot t);
 }

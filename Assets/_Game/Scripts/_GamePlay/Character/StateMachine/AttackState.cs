@@ -7,21 +7,29 @@ public class AttackState : IState
 {
     private float countTime = 0f;
     private float timeInterval = 2f;
-    public void OnEnter(Character t)
+    public void OnEnter(Bot t)
     {
-        t.ChangeAnim(Const.ANIM_ATTACK);
-        t.FocusTarget();
-        t.Attack();
+
+        t.OnMoveStop();
+        if (Utilities.Chance(60, 100))
+        {
+            t.OnAttack();
+        }
+        else
+        {
+            t.ChangeState(new PatrolState());
+        }
+        //t.OnAttack();
     }
 
-    public void OnExecute(Character t)
+    public void OnExecute(Bot t)
     {
-        countTime += Time.deltaTime;
-        if (countTime > timeInterval)
-            t.ResetAttack();
+        //countTime += Time.deltaTime;
+        //if (countTime > timeInterval)
+        //    t.ResetAttack();
     }
 
-    public void OnExit(Character t)
+    public void OnExit(Bot t)
     {
         
     }

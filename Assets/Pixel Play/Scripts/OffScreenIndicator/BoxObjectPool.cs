@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BoxObjectPool : MonoBehaviour
 {
+    
     public static BoxObjectPool current;
 
     [Tooltip("Assign the box prefab.")]
@@ -66,4 +68,5 @@ public class BoxObjectPool : MonoBehaviour
             box.Activate(false);
         }
     }
+   
 }

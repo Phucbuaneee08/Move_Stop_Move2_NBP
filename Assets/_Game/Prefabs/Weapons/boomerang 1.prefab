@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7422039717183347557
 Transform:
   m_ObjectHideFlags: 0
@@ -45,7 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a5d773762acc4f4e939b655bc61908f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 7604445987619843250, guid: b5762128b1c1f7f4fb61c00b4f35bb0d, type: 3}
+  poolType: 0
+  bulletType: 17
 --- !u!1001 &7422039718262604311
 PrefabInstance:
   m_ObjectHideFlags: 0

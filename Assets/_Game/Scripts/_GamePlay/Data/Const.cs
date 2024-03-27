@@ -7,6 +7,7 @@ public class Const
 {
     public const string PLAYER_TAG = "Player";
     public const string BOT_TAG = "Bot";
+    public const string OBSTACLE_TAG = "Obstacle";
     public const string CHARACTER_TAG = "Character";
 
     public const string ANIM_IDLE = "idle";
@@ -22,4 +23,29 @@ public class Const
 
     public const float BRICK_FORCE = 10f;
     public const float BRICK_HEIGHT = 0.35f;
+
+    public const float ATT_RANGE = 5f;
+    public const float BOT_SPEED = 3.5f;
+}
+public enum GameState { GamePlay, MainMenu , Finish, Revive, Setting }
+public enum BulletType
+{
+    B_Hammer_1 = PoolType.B_Hammer_1,
+    B_Hammer_2 = PoolType.B_Hammer_2,
+    B_Hammer_3 = PoolType.B_Hammer_3,
+    B_Candy_1 = PoolType.B_Candy_1,
+    B_Candy_2 = PoolType.B_Candy_2,
+    B_Candy_3 = PoolType.B_Candy_3,
+    B_Boomerang_1 = PoolType.B_Boomerang_1,
+    B_Boomerang_2 = PoolType.B_Boomerang_2,
+    B_Boomerang_3 = PoolType.B_Boomerang_3,
+    B_Knife_1 = PoolType.B_Knife_1,
+}
+public enum SkinType { 
+    Normal = PoolType.SKIN_Normal,
+    Devil = PoolType.SKIN_Devil,
+    Angle = PoolType.SKIN_Angle,
+    Thor = PoolType.SKIN_Thor,
+    DeadPool = PoolType.SKIN_Deadpool,
+    Witch = PoolType.SKIN_Witch
 }

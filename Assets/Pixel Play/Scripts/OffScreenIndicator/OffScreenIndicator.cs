@@ -14,7 +14,8 @@ public class OffScreenIndicator : MonoBehaviour
     [Tooltip("Distance offset of the indicators from the centre of the screen")]
     [SerializeField] private float screenBoundOffset = 0.9f;
 
-    [SerializeField] private Camera mainCamera;
+    [SerializeField] private Camera mainCamera ;
+
     private Vector3 screenCentre;
     private Vector3 screenBounds;
 
@@ -28,11 +29,13 @@ public class OffScreenIndicator : MonoBehaviour
         screenCentre = new Vector3(Screen.width, Screen.height, 0) / 2;
         screenBounds = screenCentre * screenBoundOffset;
         TargetStateChanged += HandleTargetStateChanged;
+        DrawIndicators();
     }
 
     void LateUpdate()
     {
-        DrawIndicators();
+        if(GameManager.Ins.IsState(GameState.GamePlay))
+            DrawIndicators();
     }
 
     /// <summary>
@@ -40,6 +43,7 @@ public class OffScreenIndicator : MonoBehaviour
     /// </summary>
     void DrawIndicators()
     {
+        mainCamera = Camera.main;
         foreach(Target target in targets)
         {
             Vector3 screenPosition = OffScreenIndicatorCore.GetScreenPosition(mainCamera, target.transform.position);
@@ -49,8 +53,14 @@ public class OffScreenIndicator : MonoBehaviour
 
             if(target.NeedBoxIndicator && isTargetVisible)
             {
+                
                 screenPosition.z = 0;
                 indicator = GetIndicator(ref target.indicator, IndicatorType.BOX); // Gets the box indicator from the pool.
+                if(!target.IsHasName)
+                    indicator.SetName(NameUtilities.GetRandomName());
+                target.IsHasName = true;
+               
+                
             }
             else if(target.NeedArrowIndicator && !isTargetVisible)
             {

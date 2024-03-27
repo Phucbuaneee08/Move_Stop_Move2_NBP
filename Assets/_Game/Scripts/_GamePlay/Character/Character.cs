@@ -1,56 +1,83 @@
 using Scriptable;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.UIElements;
 using UnityEngine.XR;
 
-public class Character : MonoBehaviour
+public class Character : AbstractCharacter
 {
-  
+
     [SerializeField] private Animator anim;
-    private string currentAnim;
+
+    [SerializeField] protected Skin currentSkin;
+    [SerializeField] private string currentAnim;
     // properties for attack
     [HideInInspector] public Character currentAttacker;
     [HideInInspector] public string characterName;
-    [SerializeField] private GameObject weaponHolder;
-    [SerializeField] private Weapon currentWeapon;
+  
     [SerializeField] private WeaponData weaponData;
     [SerializeField] private WeaponType currentWeaponType;
-    // properties for pant
-    [SerializeField] private Renderer pantRenderer;
-    [SerializeField] private PantData pantData;
-    // properties for hat
-    [SerializeField] private GameObject hatHolder;
-    [SerializeField] private GameObject currentHat;
-    [SerializeField] private HatData hatData;
-    // properties for shield
-    [SerializeField] private GameObject shieldHolder;
-    [SerializeField] private GameObject currentShield;
-    [SerializeField] private ShieldData shieldData;
+    [SerializeField] private GameObject boxIndicator;
 
+
+
+    // properties for character 
+
+    public const float ATT_RANGE = 5f;
+    public const float MAX_SIZE = 4f;
+    public const float MIN_SIZE = 1f;
+    public int scalePoint;
+    private int score;
+    private float size=1;
+    public float Size => size;
 
     //
+    [SerializeField] private Transform characterSprite;
     public List<Character> targets = new List<Character>();
     public Character currentTarget;
     private Vector3 targetDirection;
-    private IState currentState;
-    public bool isAttack;
-    private bool isWeaponActive;
-    
+    private Vector3 localScale;
 
+    public bool isWeaponActive;
+    public bool IsDead { get; protected set; }
+    public bool IsCanAttack { get; protected set; }
 
-    public virtual void Update()
+    /********************************
+             ABI Function   
+   ********************************/
+
+    public override void OnInit()
     {
-        
-        if (currentState != null)
-        {
-            currentState.OnExecute(this);
-        }
-    }
-    public void OnInit()
-    {
-        isAttack = false;
+        ClearTarget();
+        OnInitItem();
+        localScale = currentSkin.transform.localScale;
         isWeaponActive = true;
+        IsDead = false;
+        IsCanAttack = true;
+        scalePoint = 0;
+        score = 0;
+
+    }
+    public override void OnDespawn()
+    {
+
+        OnDespawnItem();
+        //DestroyImmediate(this.gameObject);
+        CancelInvoke();
+    }
+
+    public override void OnDeath()
+    {
+        IsDead = true;
+        ChangeAnim(Const.ANIM_DEAD);
+        LevelManager.Ins.CharacterDeath(this);
+        if (currentAttacker.CheckTarget(this))
+        {
+            currentAttacker.RemoveTarget(this);
+        }
+   
     }
 
     /********************************
@@ -61,135 +88,192 @@ public class Character : MonoBehaviour
     {
         if (currentAnim != animName)
         {
-            anim.ResetTrigger(animName);
+            currentSkin.Anim.ResetTrigger(animName);
             currentAnim = animName;
-            anim.SetTrigger(currentAnim);
+            currentSkin.Anim.SetTrigger(currentAnim);
         }
     }
 
     /********************************
                ATTACK
      ********************************/
-    public void AddTarget(Character crt)
+    public virtual void AddTarget(Character crt)
     {
         targets.Add(crt);
     }
     public bool CheckTarget(Character crt)
     {
         return targets.Contains(crt);
-        
+
     }
-    public void RemoveTarget(Character crt)
+    public virtual void RemoveTarget(Character crt)
     {
         targets.Remove(crt);
     }
-    public void Attack()
+    public virtual void ClearTarget()
     {
-        StartCoroutine(IAttack());
+        currentTarget = null;
+        targets.Clear();
     }
     private IEnumerator IAttack()
     {
-        yield return new WaitForSeconds(0.3f);
-        currentWeapon.Throw(this, targetDirection,currentWeaponType);
+        yield return new WaitForSeconds(0.2f); // delay attack animation 
+        currentSkin.Weapon.Throw(this, targetDirection, currentWeaponType);
         SetActiveCurrentWeapon(false);
 
     }
     public void FocusTarget()
     {
-        if (currentTarget != null) {
-            targetDirection = currentTarget.transform.position - transform.position;
-            transform.rotation = Quaternion.LookRotation(targetDirection); 
+        if (currentTarget != null)
+        {
+            targetDirection = (currentTarget.transform.position - transform.position);
+            targetDirection = new Vector3(targetDirection.x, 0, targetDirection.z);
+            transform.rotation = Quaternion.LookRotation(targetDirection);
         }
     }
     public void SetActiveCurrentWeapon(bool wp)
     {
-        currentWeapon.gameObject.SetActive(wp);
+        currentSkin.Weapon.gameObject.SetActive(wp);
         isWeaponActive = wp;
     }
-    public virtual void ResetAttack()
-    {
-        
-    }
-   
     public void SetAttacker(Character attacker)
     {
         this.currentAttacker = attacker;
     }
     public void ChooseTarget()
     {
-        if (targets.Count>0)
-        { 
-            currentTarget = targets[0];
-            if (currentTarget != null && isWeaponActive) {  
-                isAttack = true;
-                ChangeState(new AttackState());
+        float minDistance = float.PositiveInfinity;
+        currentTarget = null;
+
+        for (int i = 0; i < targets.Count; i++)
+            {
+        
+                if (targets[i] != null && !targets[i].IsDead && Vector3.Distance(TF.position, targets[i].TF.position) <= ATT_RANGE * size + targets[i].Size)
+                {
+                    float distance = Vector3.Distance(TF.position, targets[i].TF.position);
+                    if (distance < minDistance)
+                    {
+                        minDistance = distance;
+                        currentTarget = targets[i];
+
+                }
             }
-            Debug.Log(currentTarget);
-            //if (currentTarget == null) { }
-            //{
-            //    Debug.Log("remove target");
-            //    RemoveTarget(currentTarget);
-            //}
+            
         }
+       
     }
-  
+    public override void OnAttack()
+    {
+       
+        ChooseTarget();
+
+        if (currentTarget != null)
+        {
+            
+            IsCanAttack = false;
+            FocusTarget();
+            ChangeAnim(Const.ANIM_ATTACK);
+            StartCoroutine(IAttack());
+            ResetAttack();
+        }
+        else
+        {
+            ResetAttack();
+        }
+        
+       
+       
+
+    }
+    public virtual void ResetAttack() { }
+
     public void OnHit()
     {
-         if (currentAttacker.CheckTarget(this))
+        if (currentAttacker.CheckTarget(this))
         {
             currentAttacker.RemoveTarget(this);
         }
-        OnDead();
+        OnDeath();
     }
-    public virtual void OnDead()
+    public void SetBoxIndicator(bool active)
     {
-       ChangeState(new DeadState());
-       StartCoroutine(OnDespawn());
+        boxIndicator.SetActive(active);
     }
-    private IEnumerator OnDespawn()
+
+    /********************************
+              Scale 
+    ********************************/
+    public virtual void ScaleUp(float size)
     {
-        yield return new WaitForSeconds(2f);
-        DestroyImmediate(this.gameObject);   
+        //currentSkin.transform.localScale = Vector3.one + new Vector3(0.2f, 0.2f, 0.2f) * size;
+        this.size = Mathf.Clamp(size, MIN_SIZE, MAX_SIZE);
+        TF.localScale = Vector3.one * size;
+        ParticlePool.Play(Utilities.RandomInMember(ParticleType.LevelUp_1, ParticleType.LevelUp_2, ParticleType.LevelUp_3), TF.position);
     }
+
+    public void SetPoint(int point)
+    {
+        scalePoint += 1;
+        score += 50;
+        if (scalePoint % 2 == 0)
+        {
+            ScaleUp( 1 + scalePoint/2*0.2f);
+        }
+
+    }
+    public void SetScore(int score)
+    {
+        this.score = score;
+    }
+    public int GetScore()
+    {
+        return score;
+    }
+
+    public Vector3 getCharacterScale()
+    {
+        return localScale;
+    }
+
     /********************************
               Change Item
     ********************************/
     public void ChangePant(PantName pantName)
     {
-        pantRenderer.material = pantData.GetMat(pantName);
+        //pantRenderer.material = pantData.GetMat(pantName);
+        currentSkin.ChangePant(pantName);
     }
     public void ChangeWeapon(WeaponName weaponName)
     {
         currentWeaponType = weaponData.GetWeaponType(weaponName);
-        Weapon newWeapon = Instantiate(weaponData.GetWeapon(weaponName),weaponHolder.transform.position,Quaternion.identity);
-        newWeapon.transform.parent = weaponHolder.transform;
-        currentWeapon = newWeapon;
+        //currentWeapon = SimplePool.Spawn<Weapon>((PoolType)weaponName, weaponHolder.transform);
+        currentSkin.ChangeWeapon(weaponName);
     }
     public void ChangeHat(HatName hatName)
     {
-        currentHat = Instantiate(hatData.GetHat(hatName), hatHolder.transform.position, Quaternion.identity);
-        currentHat.transform.parent = hatHolder.transform;
+
+        //currentHat = SimplePool.Spawn<Hat>((PoolType)hatName, hatHolder.transform);
+        currentSkin.ChangeHat(hatName);
+    
     }
     public void ChangeShield(ShieldName shieldName)
-    {
-        currentShield = Instantiate(shieldData.GetShield(shieldName),shieldHolder.transform.position,Quaternion.identity);
-        currentShield.transform.parent = shieldHolder.transform;
+    {                           
+        //currentShield = SimplePool.Spawn<Shield>((PoolType)shieldName, shieldHolder.transform);
+        currentSkin.ChangeShield(shieldName);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public void ChangeSkin(SkinType skinType)
+    {
+        currentSkin = SimplePool.Spawn<Skin>((PoolType)skinType, TF);
+    }
+    public virtual void OnInitItem()
+    {
+        
+    }
+    public virtual void OnDespawnItem()
+    {
+        currentSkin?.OnDespawn();
+        SimplePool.Despawn(currentSkin);
+    }
 
 
     /********************************
@@ -197,20 +281,26 @@ public class Character : MonoBehaviour
     ********************************/
 
     public virtual void RandomMove() { }
-    public virtual void Stop() { }
-    public virtual void BotAttack() {}
-    public virtual void ChangeState(IState state)
+    public virtual void BotAttack() { }
+
+
+
+
+    /********************************
+              ABI FUNCTION
+    ********************************/
+  
+    public override void OnMoveStop()
     {
-        if (currentState != null)
-        {
-            currentState.OnExit(this);
-        }
 
-        currentState = state;
-
-        if (currentState != null)
-        {
-            currentState.OnEnter(this);
-        }
     }
+    public virtual void StartReset()
+    {
+
+    }
+    public void ResetAnim()
+    {
+        currentAnim = "";
+    }
+    
 }

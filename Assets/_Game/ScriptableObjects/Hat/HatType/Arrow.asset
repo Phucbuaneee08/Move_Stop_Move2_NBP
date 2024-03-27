@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93d71bc153a5da0488449bd93d93e78f, type: 3}
   m_Name: Arrow
   m_EditorClassIdentifier: 
-  hatName: 0
+  hatName: 28
   hName: 
   price: 0
   icon: {fileID: 0}

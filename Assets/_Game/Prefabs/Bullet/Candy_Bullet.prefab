@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1652696915156819485}
-  - component: {fileID: 3925204118297308500}
   - component: {fileID: 6815292012010980270}
   - component: {fileID: 7954525284244221296}
+  - component: {fileID: 2810247868681755928}
   m_Layer: 0
   m_Name: Candy_Bullet
   m_TagString: Untagged
@@ -31,23 +31,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1652696915325064891}
+  - {fileID: 1954074594175358354}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3925204118297308500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1652696915156819483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bed1193b07001b748826165e9244ef15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 6815292012010980270}
 --- !u!54 &6815292012010980270
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -77,12 +64,61 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.43301558, y: 0.41257906, z: 0.95373416}
   m_Center: {x: 0.02154243, y: 0.010538101, z: -0.09261119}
+--- !u!114 &2810247868681755928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1652696915156819483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 657d4faeb217b1047bb7dab115298e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolType: 5
+  rb: {fileID: 6815292012010980270}
+  owner: {fileID: 0}
+  sprite: {fileID: 1954074594175358354}
+  rotateSpeed: 800
+--- !u!1 &5066929281874514251
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1954074594175358354}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1954074594175358354
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5066929281874514251}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1652696915325064891}
+  m_Father: {fileID: 1652696915156819485}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1652696915324931131
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1652696915156819485}
+    m_TransformParent: {fileID: 1954074594175358354}
     m_Modifications:
     - target: {fileID: 100000, guid: 77de8014aff37804f92ab58c8817cced, type: 3}
       propertyPath: m_Name
@@ -94,7 +130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 77de8014aff37804f92ab58c8817cced, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 77de8014aff37804f92ab58c8817cced, type: 3}
       propertyPath: m_LocalPosition.y
@@ -114,11 +150,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 77de8014aff37804f92ab58c8817cced, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 77de8014aff37804f92ab58c8817cced, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 77de8014aff37804f92ab58c8817cced, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -158,11 +194,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1652696915324832411}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 575d7f83e90229845a7da35ae0a45922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotateSpeed: 800
 --- !u!4 &1652696915325064891 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 77de8014aff37804f92ab58c8817cced, type: 3}

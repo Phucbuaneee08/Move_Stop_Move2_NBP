@@ -2,7 +2,10 @@ using Scriptable;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(menuName = "ShieldType")]
+
+
+
+[CreateAssetMenu(fileName = "ShieldType", menuName = "ScriptableObjects/Type/ShieldType", order = 1)]
 public class ShieldType : ScriptableObject  
 {
     public ShieldName shieldName;

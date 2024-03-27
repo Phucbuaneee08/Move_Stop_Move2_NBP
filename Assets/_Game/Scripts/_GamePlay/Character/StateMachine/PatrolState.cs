@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class PatrolState : IState
 {
-    public void OnEnter(Character t)
+    public void OnEnter(Bot t)
     {
         t.RandomMove();
     }
 
-    public void OnExecute(Character t)
+    public void OnExecute(Bot t)
     {
-        t.Stop();
+        t.StopRandomMove();
     }
 
-    public void OnExit(Character t)
+    public void OnExit(Bot t)
     {
        
     }

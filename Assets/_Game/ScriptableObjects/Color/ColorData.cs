@@ -16,7 +16,7 @@ namespace Scriptable
         Gray = 5
     }
 
-    [CreateAssetMenu(menuName = "ColorData")]
+    [CreateAssetMenu(fileName = "ColorData", menuName = "ScriptableObjects/Data/ColorData", order = 1)]
     public class ColorData : ScriptableObject
     {
         //theo tha material theo dung thu tu ColorType

@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "PantType")]
+
+
+[CreateAssetMenu(fileName = "PantType", menuName = "ScriptableObjects/Type/PantType", order = 1)]
 public class PantType : ScriptableObject
 {
     public PantName pantName;

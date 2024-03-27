@@ -7,13 +7,13 @@ public class IdleState : IState
 {
     private float timeInterval = 3f;
     private float countTime = 0f;
-    public void OnEnter(Character t)
+    public void OnEnter(Bot t)
     {
-        t.ChangeAnim(Const.ANIM_IDLE);
-        t.ChooseTarget();
+      
+
     }
 
-    public void OnExecute(Character t)
+    public void OnExecute(Bot t)
     {
         countTime += Time.deltaTime;
         if (countTime > timeInterval)
@@ -21,7 +21,7 @@ public class IdleState : IState
 
     }
 
-    public void OnExit(Character t)
+    public void OnExit(Bot t)
     {
         
     }

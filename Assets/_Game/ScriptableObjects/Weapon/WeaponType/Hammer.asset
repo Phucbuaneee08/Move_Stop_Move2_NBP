@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfd40df5381bb08499f65fda56b56f4d, type: 3}
   m_Name: Hammer
   m_EditorClassIdentifier: 
-  WeaponName: 0
+  WeaponName: 2
   index: 0
   wpName: 
   model: {fileID: -5340570605255955162, guid: 4c0b03fb49af1cc4e83ad3a56e7740b9, type: 3}
   icon: {fileID: 0}
-  price: 0
+  price: 7000
   range: 0
   speed: 10

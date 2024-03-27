@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfd40df5381bb08499f65fda56b56f4d, type: 3}
   m_Name: Knife
   m_EditorClassIdentifier: 
-  WeaponName: 1
+  WeaponName: 11
   index: 0
   wpName: 
   model: {fileID: 1317854696936870938, guid: 3f327cf18dd47a149ba7d1b889ae570c, type: 3}
   icon: {fileID: 0}
-  price: 0
+  price: 6000
   range: 0
-  speed: 10
+  speed: 15

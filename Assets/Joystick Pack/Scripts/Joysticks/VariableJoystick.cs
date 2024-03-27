@@ -23,7 +23,7 @@ public class VariableJoystick : Joystick
         else
             background.gameObject.SetActive(false);
     }
-
+    
     protected override void Start()
     {
         base.Start();

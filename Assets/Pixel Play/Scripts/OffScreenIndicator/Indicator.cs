@@ -7,6 +7,9 @@ using UnityEngine.UI;
 public class Indicator : MonoBehaviour
 {
     [SerializeField] private IndicatorType indicatorType;
+    [SerializeField] private Image imageObject;
+    [SerializeField] private Text textObject;
+    [SerializeField] Text textName;
     private Image indicatorImage;
     private Text distanceText;
 
@@ -34,8 +37,8 @@ public class Indicator : MonoBehaviour
 
     void Awake()
     {
-        indicatorImage = transform.GetComponent<Image>();
-        distanceText = transform.GetComponentInChildren<Text>();
+        indicatorImage = imageObject.GetComponent<Image>();
+        distanceText = textObject.GetComponent<Text>();
     }
 
     /// <summary>
@@ -72,6 +75,14 @@ public class Indicator : MonoBehaviour
     public void Activate(bool value)
     {
         transform.gameObject.SetActive(value);
+    }
+    /// <summary>
+    /// Sets the indicator as active or inactive.
+    /// </summary>
+    /// <param name="value"></param>
+    public void SetName(string name)
+    {
+        textName.text = name;
     }
 }
 

@@ -16,7 +16,8 @@ namespace Scriptable
         Pokemon = 5
     }
 
-    [CreateAssetMenu(menuName ="PantData")]
+
+    [CreateAssetMenu(fileName = "PantData", menuName = "ScriptableObjects/Data/PantData", order = 1)]
     public class PantData : ScriptableObject
     {
         

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfd40df5381bb08499f65fda56b56f4d, type: 3}
   m_Name: Bumerang
   m_EditorClassIdentifier: 
-  WeaponName: 3
+  WeaponName: 8
   index: 0
   wpName: 
   model: {fileID: 2466136048613439407, guid: 356adf8465d33dc498e26f909f8e3bb9, type: 3}
   icon: {fileID: 0}
-  price: 0
+  price: 9000
   range: 0
   speed: 10

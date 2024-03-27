@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SocialPlatforms.GameCenter;
 
 public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
@@ -56,7 +57,11 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         handle.pivot = center;
         handle.anchoredPosition = Vector2.zero;
     }
-
+    private void OnEnable()
+    {
+        handle.anchoredPosition = Vector2.zero;
+        handle.pivot = new Vector3(0.5f,0.5f);
+    }
     public virtual void OnPointerDown(PointerEventData eventData)
     {
         OnDrag(eventData);
