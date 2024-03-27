@@ -16,8 +16,9 @@ public class UIFail : UICanvas
     public void HomeButton()
     {
         UserData.Ins.coin += coin;
-        LevelManager.Ins.Home();
         UserData.Ins.SetIntData(UserData.Key_Coin, ref UserData.Ins.coin, UserData.Ins.coin);
+        LevelManager.Ins.Home();
+     
     }
     public void SetCoin(int coin)
     {

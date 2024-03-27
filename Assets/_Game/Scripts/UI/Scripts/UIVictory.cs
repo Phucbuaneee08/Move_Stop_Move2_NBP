@@ -21,9 +21,9 @@ public class UIVictory : UICanvas
     }
     public void HomeButton()
     {
-        LevelManager.Ins.Home();
         UserData.Ins.coin += coin;
         UserData.Ins.SetIntData(UserData.Key_Coin, ref UserData.Ins.coin, UserData.Ins.coin);
+        LevelManager.Ins.Home();
     }
     public void SetCoin(int coin)
     {
