@@ -10,31 +10,21 @@ public class Character : AbstractCharacter
 {
 
     [SerializeField] private Animator anim;
-
     [SerializeField] protected Skin currentSkin;
     [SerializeField] private string currentAnim;
     // properties for attack
     [HideInInspector] public Character currentAttacker;
     [HideInInspector] public string characterName;
-  
     [SerializeField] private WeaponData weaponData;
     [SerializeField] private WeaponType currentWeaponType;
     [SerializeField] private GameObject boxIndicator;
+    [SerializeField] private Transform characterSprite;
+    // properties for character
 
-
-
-    // properties for character 
-
-    public const float ATT_RANGE = 5f;
-    public const float MAX_SIZE = 4f;
-    public const float MIN_SIZE = 1f;
     public int scalePoint;
     private int score;
-    private float size=1;
+    private float size = 1;
     public float Size => size;
-
-    //
-    [SerializeField] private Transform characterSprite;
     public List<Character> targets = new List<Character>();
     public Character currentTarget;
     private Vector3 targetDirection;
@@ -77,7 +67,7 @@ public class Character : AbstractCharacter
         {
             currentAttacker.RemoveTarget(this);
         }
-   
+
     }
 
     /********************************
@@ -117,7 +107,7 @@ public class Character : AbstractCharacter
     }
     private IEnumerator IAttack()
     {
-        yield return new WaitForSeconds(0.2f); // delay attack animation 
+        yield return new WaitForSeconds(Const.DELAY_ATTACK); // delay attack animation 
         currentSkin.Weapon.Throw(this, targetDirection, currentWeaponType);
         SetActiveCurrentWeapon(false);
 
@@ -146,30 +136,30 @@ public class Character : AbstractCharacter
         currentTarget = null;
 
         for (int i = 0; i < targets.Count; i++)
+        {
+
+            if (targets[i] != null && !targets[i].IsDead && Vector3.Distance(TF.position, targets[i].TF.position) <= Const.ATT_RANGE * size + targets[i].Size)
             {
-        
-                if (targets[i] != null && !targets[i].IsDead && Vector3.Distance(TF.position, targets[i].TF.position) <= ATT_RANGE * size + targets[i].Size)
+                float distance = Vector3.Distance(TF.position, targets[i].TF.position);
+                if (distance < minDistance)
                 {
-                    float distance = Vector3.Distance(TF.position, targets[i].TF.position);
-                    if (distance < minDistance)
-                    {
-                        minDistance = distance;
-                        currentTarget = targets[i];
+                    minDistance = distance;
+                    currentTarget = targets[i];
 
                 }
             }
-            
+
         }
-       
+
     }
     public override void OnAttack()
     {
-       
+
         ChooseTarget();
 
         if (currentTarget != null)
         {
-            
+
             IsCanAttack = false;
             FocusTarget();
             ChangeAnim(Const.ANIM_ATTACK);
@@ -180,10 +170,6 @@ public class Character : AbstractCharacter
         {
             ResetAttack();
         }
-        
-       
-       
-
     }
     public virtual void ResetAttack() { }
 
@@ -206,18 +192,18 @@ public class Character : AbstractCharacter
     public virtual void ScaleUp(float size)
     {
         //currentSkin.transform.localScale = Vector3.one + new Vector3(0.2f, 0.2f, 0.2f) * size;
-        this.size = Mathf.Clamp(size, MIN_SIZE, MAX_SIZE);
+        this.size = Mathf.Clamp(size, Const.MIN_SIZE, Const.MAX_SIZE);
         TF.localScale = Vector3.one * size;
         ParticlePool.Play(Utilities.RandomInMember(ParticleType.LevelUp_1, ParticleType.LevelUp_2, ParticleType.LevelUp_3), TF.position);
     }
 
     public void SetPoint(int point)
     {
-        scalePoint += 1;
-        score += 50;
+        scalePoint += Const.POINT_UNIT;
+        score += Const.SCORE_UNIT;
         if (scalePoint % 2 == 0)
         {
-            ScaleUp( 1 + scalePoint/2*0.2f);
+            ScaleUp(1 + scalePoint / 2 * 0.2f);
         }
 
     }
@@ -254,10 +240,10 @@ public class Character : AbstractCharacter
 
         //currentHat = SimplePool.Spawn<Hat>((PoolType)hatName, hatHolder.transform);
         currentSkin.ChangeHat(hatName);
-    
+
     }
     public void ChangeShield(ShieldName shieldName)
-    {                           
+    {
         //currentShield = SimplePool.Spawn<Shield>((PoolType)shieldName, shieldHolder.transform);
         currentSkin.ChangeShield(shieldName);
     }
@@ -267,7 +253,7 @@ public class Character : AbstractCharacter
     }
     public virtual void OnInitItem()
     {
-        
+
     }
     public virtual void OnDespawnItem()
     {
@@ -283,13 +269,10 @@ public class Character : AbstractCharacter
     public virtual void RandomMove() { }
     public virtual void BotAttack() { }
 
-
-
-
     /********************************
               ABI FUNCTION
     ********************************/
-  
+
     public override void OnMoveStop()
     {
 
@@ -302,5 +285,5 @@ public class Character : AbstractCharacter
     {
         currentAnim = "";
     }
-    
+
 }

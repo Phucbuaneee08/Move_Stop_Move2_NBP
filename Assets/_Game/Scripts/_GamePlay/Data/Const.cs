@@ -24,8 +24,15 @@ public class Const
     public const float BRICK_FORCE = 10f;
     public const float BRICK_HEIGHT = 0.35f;
 
+    public const float DELAY_ATTACK = 0.2f; // Delay attack after Animation of character 
     public const float ATT_RANGE = 5f;
     public const float BOT_SPEED = 3.5f;
+
+    public const int SCORE_UNIT = 50;
+    public const int POINT_UNIT = 1;
+
+    public const float MAX_SIZE = 4f;
+    public const float MIN_SIZE = 1f;
 }
 public enum GameState { GamePlay, MainMenu , Finish, Revive, Setting }
 public enum BulletType

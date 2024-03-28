@@ -7,46 +7,44 @@ using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
 public class Player : Character
-{   
+{
     [SerializeField] private float moveSpeed = 300f;
     [SerializeField] private Rigidbody rb;
     public VariableJoystick variableJoystick;
     private Vector3 moveVector;
     private Vector3 direction;
     private float rotateSpeed = 10f;
-  
+
     SkinType skinType = SkinType.Normal;
     WeaponName weaponName = WeaponName.Boomerang;
     HatName hatName = HatName.Arrow;
     PantName pantName = PantName.Dabao;
     ShieldName shieldName = ShieldName.Khien;
     private bool IsCanUpdate => GameManager.Ins.IsState(GameState.GamePlay) || GameManager.Ins.IsState(GameState.Setting);
-   
+
     public void FixedUpdate()
-    {     
-            Move();
+    {
+        Move();
     }
 
     private void Move()
     {
-       
-        if(variableJoystick != null && !IsDead && IsCanUpdate) {
+
+        if (variableJoystick != null && !IsDead && IsCanUpdate)
+        {
             moveVector.x = variableJoystick.Horizontal;
             moveVector.z = variableJoystick.Vertical;
-
-
             direction = Vector3.RotateTowards(transform.forward, moveVector, rotateSpeed * Time.deltaTime, 0.0f);
-            if(moveVector.magnitude >0.1f && Input.GetMouseButton(0))
+            if (moveVector.magnitude > 0.1f && Input.GetMouseButton(0))
             {
                 StopAllCoroutines();
                 IsCanAttack = true;
                 ChangeAnim(Const.ANIM_RUN);
                 transform.rotation = Quaternion.LookRotation(direction);
-                rb.velocity = direction* moveSpeed *Time.deltaTime;
+                rb.velocity = direction * moveSpeed * Time.deltaTime;
             }
-            else 
+            else
             {
-                
                 OnAttack();
                 ChangeAnim(Const.ANIM_IDLE);
                 rb.velocity = Vector3.zero;
@@ -58,24 +56,23 @@ public class Player : Character
         }
     }
     public override void OnInit()
-    { 
+    {
         OnTakeUserData();
         base.OnInit();
-        
-  
         ScaleUp(1); // set player default size 
-        variableJoystick = null;  
+        variableJoystick = null;
         IsDead = false;
         ChangeAnim(Const.ANIM_IDLE);
     }
     public override void OnDeath()
-    { 
+    {
         base.OnDeath();
-     
+
     }
     public override void OnAttack()
     {
-        if(IsCanAttack) {
+        if (IsCanAttack)
+        {
             base.OnAttack();
         }
 
@@ -89,7 +86,7 @@ public class Player : Character
         base.ResetAttack();
         CancelInvoke(nameof(StartReset));
         Invoke(nameof(StartReset), 3f);
-        
+
     }
     public override void StartReset()
     {
@@ -104,8 +101,8 @@ public class Player : Character
     }
     public override void AddTarget(Character crt)
     {
-        if (!crt.IsDead) 
-        { 
+        if (!crt.IsDead)
+        {
             base.AddTarget(crt);
             crt.SetBoxIndicator(true);
         }
@@ -115,7 +112,6 @@ public class Player : Character
         ChangeAnim(Const.ANIM_IDLE);
         IsDead = false;
         ClearTarget();
-
         //reviveVFX.Play();
     }
     public override void RemoveTarget(Character crt)
@@ -125,13 +121,12 @@ public class Player : Character
     }
     public override void OnInitItem()
     {
-        base.OnInitItem(); 
+        base.OnInitItem();
         ChangeSkin(skinType);
         ChangeHat(hatName);
         ChangePant(pantName);
         ChangeWeapon(weaponName);
         ChangeShield(shieldName);
-       
     }
     public void OnTakeUserData()
     {
@@ -141,7 +136,7 @@ public class Player : Character
         pantName = UserData.Ins.playerPant;
         shieldName = UserData.Ins.playerShield;
     }
-   
+
     public void TryCloth(UIShop.ShopType shopType, Enum type)
     {
         switch (shopType)

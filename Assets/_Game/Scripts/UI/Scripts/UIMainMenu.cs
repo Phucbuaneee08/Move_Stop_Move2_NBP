@@ -24,16 +24,12 @@ public class UIMainMenu : UICanvas
         GameManager.Ins.ChangeState(GameState.MainMenu);
         CameraFollow.Ins.ChangeState(GameState.MainMenu);
 
-        
+
 
         //anim.Play(ANIM_OPEN);
     }
 
 
-    //public void SettingButton()
-    //{
-
-    //}
 
     public void ShopButton()
     {

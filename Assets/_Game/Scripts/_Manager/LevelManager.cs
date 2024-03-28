@@ -68,7 +68,7 @@ public class LevelManager : Singleton<LevelManager>
     {
         Vector3 randPoint = Vector3.zero;
 
-        float size = Character.ATT_RANGE + Character.MAX_SIZE + 1f;
+        float size = Const.ATT_RANGE + Const.MAX_SIZE + 1f;
 
         for (int t = 0; t < 50; t++)
         {

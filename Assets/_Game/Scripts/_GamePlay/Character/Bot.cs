@@ -9,17 +9,17 @@ using Random = UnityEngine.Random;
 public class Bot : Character
 {
     [SerializeField] private NavMeshAgent agent;
- 
+    [SerializeField] private IState currentState;
     public Transform obj;
     private Vector3 destination;
     private Vector3 direction;
     private Vector3 randomDirection3D;
     private Vector2 randomDirection2D;
     private int randomDistance;
-    [SerializeField] private IState currentState;
+
 
     private bool IsCanRunning => (GameManager.Ins.IsState(GameState.GamePlay) || GameManager.Ins.IsState(GameState.Revive) || GameManager.Ins.IsState(GameState.Setting));
-   
+
     public override void OnInit()
     {
         base.OnInit();
@@ -28,7 +28,7 @@ public class Bot : Character
     }
     public void Update()
     {
-       
+
         if (IsDead || !IsCanRunning) return;
         if (currentState != null)
         {
@@ -39,7 +39,7 @@ public class Bot : Character
     public void SetDestination(Vector3 des)
     {
         this.destination = des;
-        agent.enabled = true ;
+        agent.enabled = true;
         agent.SetDestination(destination);
     }
     public override void RandomMove()
@@ -66,7 +66,7 @@ public class Bot : Character
     {
         if (Vector3.Distance(TF.position, destination) - Mathf.Abs(TF.position.y - destination.y) < 0.1f)
         {
-            agent.enabled=false;
+            agent.enabled = false;
             ChangeAnim(Const.ANIM_IDLE);
             ChangeState(new IdleState());
         }
@@ -74,10 +74,11 @@ public class Bot : Character
     public override void AddTarget(Character crt)
     {
         base.AddTarget(crt);
-        if (!crt.IsDead && IsCanAttack && !this.IsDead && IsCanRunning) { 
+        if (!crt.IsDead && IsCanAttack && !this.IsDead && IsCanRunning)
+        {
             ChangeState(new AttackState());
-        } 
-        
+        }
+
     }
     public override void BotAttack()
     {
@@ -107,9 +108,9 @@ public class Bot : Character
     {
         base.OnDespawn();
         SimplePool.Despawn(this);
-     
+
     }
-    
+
     public virtual void ChangeState(IState state)
     {
         if (currentState != null)
@@ -133,7 +134,7 @@ public class Bot : Character
         ChangeHat(Utilities.RandomEnumValue<HatName>());
         ChangePant(Utilities.RandomEnumValue<PantName>());
         ChangeWeapon(Utilities.RandomEnumValue<WeaponName>());
-        
+
     }
 
 
