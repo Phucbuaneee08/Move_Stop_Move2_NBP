@@ -23,8 +23,8 @@ public class UIWeapon : UICanvas
     public override void Setup()
     {
         base.Setup();
-        ChangeWeapon(UserData.Ins.playerWeapon);
-        playerCoinTxt.text =UserData.Ins.coin.ToString();
+        ChangeWeapon(DataManager.Ins.playerData.playerWeapon);
+        playerCoinTxt.text =DataManager.Ins.playerData.coin.ToString();
     }
 
     public override void CloseDirectly()
@@ -53,11 +53,15 @@ public class UIWeapon : UICanvas
     public void BuyButton()
     {
         //TODO: check tien
-        if (UserData.Ins.coin >= currentWeaponPrice)
+        if (DataManager.Ins.playerData.coin >= currentWeaponPrice)
         {
-            UserData.Ins.coin -= currentWeaponPrice;
-            UserData.Ins.SetEnumData(weaponName.ToString(), ShopItem.State.Bought);
-            UserData.Ins.SetIntData(UserData.Key_Coin, ref UserData.Ins.coin, UserData.Ins.coin);
+ 
+            DataManager.Ins.playerData.coin -= currentWeaponPrice;
+            //UserData.Ins.SetEnumData(weaponName.ToString(), ShopItem.State.Bought);
+            //UserData.Ins.SetIntData(UserData.Key_Coin, ref UserData.Ins.coin, UserData.Ins.coin);
+            DataManager.Ins.SetItemState(weaponName, ItemState.Bought);
+            DataManager.Ins.SetData(ref DataManager.Ins.playerData.coin, DataManager.Ins.playerData.coin);
+            coinTxt.text = DataManager.Ins.playerData.coin.ToString();
             ChangeWeapon(weaponName);
         }
     }
@@ -76,12 +80,19 @@ public class UIWeapon : UICanvas
 
     public void EquipButton()
     {
-        Debug.Log("Equip");
-        UserData.Ins.SetEnumData(weaponName.ToString(), ShopItem.State.Equipped);
-        UserData.Ins.SetEnumData(UserData.Ins.playerWeapon.ToString(), ShopItem.State.Bought);
-        UserData.Ins.SetEnumData(UserData.Key_Player_Weapon, ref UserData.Ins.playerWeapon, weaponName);
-        ChangeWeapon(weaponName);
-        LevelManager.Ins.player.TryCloth(UIShop.ShopType.Weapon, weaponName);
+        //UserData.Ins.SetEnumData(weaponName.ToString(), ShopItem.State.Equipped);
+        //UserData.Ins.SetEnumData(UserData.Ins.playerWeapon.ToString(), ShopItem.State.Bought);
+        //UserData.Ins.SetEnumData(UserData.Key_Player_Weapon, ref UserData.Ins.playerWeapon, weaponName);
+       
+            DataManager.Ins.SetItemState(weaponName, ItemState.Equipped);
+        if (weaponName != DataManager.Ins.playerData.playerWeapon)
+        {
+            DataManager.Ins.SetItemState(DataManager.Ins.playerData.playerWeapon, ItemState.Bought);
+        }
+            DataManager.Ins.SetEnumData(ref DataManager.Ins.playerData.playerWeapon, weaponName);
+            ChangeWeapon(weaponName);
+            LevelManager.Ins.player.TryCloth(UIShop.ShopType.Weapon, weaponName);
+        
     }
 
     public void ChangeWeapon(WeaponName weaponName)
@@ -95,7 +106,9 @@ public class UIWeapon : UICanvas
         currentWeapon = SimplePool.Spawn<Weapon>((PoolType)weaponName, Vector3.zero, Quaternion.identity, weaponPoint);
 
         //check data dong
-        ButtonState.State state = (ButtonState.State)UserData.Ins.GetDataState(weaponName.ToString(), 0);
+        //ButtonState.State state = (ButtonState.State)UserData.Ins.GetDataState(weaponName.ToString(), 0);
+        ButtonState.State state = (ButtonState.State)DataManager.Ins.GetItemState(weaponName);
+       
         buttonState.SetState(state);
                                                                                                                                      
         WeaponType item = weaponData.GetWeaponType(weaponName);

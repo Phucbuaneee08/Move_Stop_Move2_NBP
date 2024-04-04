@@ -16,7 +16,7 @@ public class UIMainMenu : UICanvas
     public override void Setup()
     {
         base.Setup();
-        playerCoinTxt.text = UserData.Ins.coin.ToString();
+        playerCoinTxt.text = DataManager.Ins.playerData.coin.ToString();
     }
     public override void Open()
     {

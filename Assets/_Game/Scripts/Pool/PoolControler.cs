@@ -198,6 +198,12 @@ public enum PoolType
     ACC_Shield,
 
     TargetIndicator,
+    VFX_FlyCoin,
+    Booster_Shield, 
+    Booster_X3, 
+    Booster_UpRange,
+    Booster,
+    NotiText
 }
 
 

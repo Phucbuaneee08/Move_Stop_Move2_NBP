@@ -17,6 +17,6 @@ MonoBehaviour:
   wpName: 
   model: {fileID: 1317854696936870938, guid: 3f327cf18dd47a149ba7d1b889ae570c, type: 3}
   icon: {fileID: 0}
-  price: 6000
+  price: 0
   range: 0
-  speed: 15
+  speed: 10

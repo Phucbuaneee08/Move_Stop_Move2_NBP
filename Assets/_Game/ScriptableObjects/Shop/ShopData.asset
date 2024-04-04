@@ -78,41 +78,13 @@ MonoBehaviour:
       cost: 500
       ads: 0
       type: 40
-    - icon: {fileID: 0}
-      cost: 0
+    - icon: {fileID: 21300000, guid: 5033499010ad59241ad2cbdc6b1f9694, type: 3}
+      cost: 500
       ads: 0
-      type: 0
-    - icon: {fileID: 0}
-      cost: 0
-      ads: 0
-      type: 0
-    - icon: {fileID: 0}
-      cost: 0
-      ads: 0
-      type: 0
+      type: 38
   skins:
     ts:
-    - icon: {fileID: 21300000, guid: 47489d63e5926ef478fda009b5f7b683, type: 3}
-      cost: 1000
-      ads: 0
-      type: 24
-    - icon: {fileID: 21300000, guid: 8f00f4e5c6662634d9d6fb1e2e2b01ce, type: 3}
-      cost: 1000
-      ads: 0
-      type: 26
-    - icon: {fileID: 21300000, guid: 10f805f9a39668441b0d858a53a90087, type: 3}
-      cost: 1000
-      ads: 0
-      type: 23
     - icon: {fileID: 21300000, guid: 5a372bbeec787a54d92c4a484eda34b4, type: 3}
-      cost: 1000
+      cost: 0
       ads: 0
       type: 22
-    - icon: {fileID: 21300000, guid: 74f22cae5f11d6049b5ad45d2c791d6d, type: 3}
-      cost: 1000
-      ads: 0
-      type: 27
-    - icon: {fileID: 21300000, guid: cf2c2f0409a120d4084268be4362625f, type: 3}
-      cost: 1000
-      ads: 0
-      type: 25

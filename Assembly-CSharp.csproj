@@ -63,6 +63,7 @@
     <Compile Include="Assets\_Game\Scripts\_GamePlay\Character\StateMachine\RunState.cs" />
     <Compile Include="Assets\_Game\Scripts\UI\Shop\ShopItem.cs" />
     <Compile Include="Assets\_Game\Scripts\UI\Scripts\UIMainMenu.cs" />
+    <Compile Include="Assets\FreeForkLift\Scripts\NewCarController.cs" />
     <Compile Include="Assets\Voxel Arsenal\Demo\Scripts\VoxelTarget.cs" />
     <Compile Include="Assets\Pixel Play\Scripts\ExtendedFlycam.cs" />
     <Compile Include="Assets\_Game\Scripts\UI\Scripts\UIFail.cs" />
@@ -82,7 +83,9 @@
     <Compile Include="Assets\_Game\Scripts\UI\Scripts\UISetting.cs" />
     <Compile Include="Assets\Voxel Arsenal\Scripts\VoxelSoundSpawn.cs" />
     <Compile Include="Assets\_Game\Scripts\UI\Scripts\UIGameplay.cs" />
+    <Compile Include="Assets\_Game\Scripts\_GamePlay\Data\DataUtilities.cs" />
     <Compile Include="Assets\_Game\Scripts\Other\NameUtilities.cs" />
+    <Compile Include="Assets\_Game\Scripts\_GamePlay\Booster\ShieldBooster.cs" />
     <Compile Include="Assets\Pixel Play\Scripts\OffScreenIndicator\Target.cs" />
     <Compile Include="Assets\_Game\Scripts\Pool\MiniPool.cs" />
     <Compile Include="Assets\_Game\ScriptableObjects\Shield\ShieldData.cs" />
@@ -100,11 +103,11 @@
     <Compile Include="Assets\_Game\ScriptableObjects\Hat\HatType.cs" />
     <Compile Include="Assets\_Game\Scripts\_GamePlay\Weapons\Weapon.cs" />
     <Compile Include="Assets\_Game\ScriptableObjects\Weapon\WeaponType.cs" />
-    <Compile Include="Assets\_Game\Scripts\_GamePlay\Data\UserData.cs" />
     <Compile Include="Assets\Voxel Arsenal\Demo\Scripts\VoxelProjectileScript.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\DynamicJoystick.cs" />
     <Compile Include="Assets\_Game\Scripts\_Manager\GameManager.cs" />
     <Compile Include="Assets\Pixel Play\Scripts\OffScreenIndicator\OffScreenIndicator.cs" />
+    <Compile Include="Assets\FreeForkLift\Scripts\ForkController.cs" />
     <Compile Include="Assets\_Game\Scripts\_GamePlay\Character\AttackRange.cs" />
     <Compile Include="Assets\_Game\Scripts\UI\UIManager.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Base\Joystick.cs" />
@@ -117,6 +120,7 @@
     <Compile Include="Assets\_Game\Scripts\_GamePlay\Character\StateMachine\IdleState.cs" />
     <Compile Include="Assets\Joystick Pack\Examples\JoystickSetterExample.cs" />
     <Compile Include="Assets\_Game\ScriptableObjects\Pant\PantData.cs" />
+    <Compile Include="Assets\FreeForkLift\Scripts\Reset.cs" />
     <Compile Include="Assets\Voxel Arsenal\Demo\Scripts\VoxelButtonScript.cs" />
     <Compile Include="Assets\_Game\ScriptableObjects\Shop\ShopData.cs" />
     <Compile Include="Assets\Pixel Play\Scripts\OffScreenIndicator\ArrowObjectPool.cs" />
@@ -126,6 +130,7 @@
     <Compile Include="Assets\Pixel Play\Scripts\OffScreenIndicator\Indicator.cs" />
     <Compile Include="Assets\_Game\Scripts\_GamePlay\Item\Set.cs" />
     <Compile Include="Assets\_Game\ScriptableObjects\Weapon\WeaponData.cs" />
+    <Compile Include="Assets\_Game\Scripts\_GamePlay\Data\DataManager.cs" />
     <Compile Include="Assets\_Game\ScriptableObjects\Shield\ShieldType.cs" />
     <Compile Include="Assets\_Game\Scripts\_GamePlay\Level\Level.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
@@ -135,18 +140,24 @@
     <Compile Include="Assets\_Game\ScriptableObjects\Hat\HatData.cs" />
     <Compile Include="Assets\_Game\Scripts\_GamePlay\CameraFollow.cs" />
     <Compile Include="Assets\Voxel Arsenal\Demo\Scripts\VoxelSceneSelect.cs" />
+    <Compile Include="Assets\FreeForkLift\Scripts\NewCarUserControl.cs" />
     <Compile Include="Assets\_Game\Scripts\UI\Scripts\UIVictory.cs" />
+    <Compile Include="Assets\_Game\Scripts\VFX\FlyCoin.cs" />
     <Compile Include="Assets\_Game\Scripts\_GamePlay\Weapons\Rotate.cs" />
     <Compile Include="Assets\_Game\Scripts\_GamePlay\Character\StateMachine\AttackState.cs" />
     <Compile Include="Assets\_Game\Scripts\_GamePlay\Character\StateMachine\DeadState.cs" />
     <Compile Include="Assets\_Game\Scripts\UI\Shop\ButtonState.cs" />
     <Compile Include="Assets\_Game\Scripts\_GamePlay\Character\AbstractCharacter.cs" />
     <Compile Include="Assets\_Game\Scripts\_GamePlay\Character\Character.cs" />
+    <Compile Include="Assets\_Game\Scripts\_GamePlay\Booster\Booster.cs" />
     <Compile Include="Assets\_Game\Scripts\_GamePlay\Character\Player.cs" />
     <Compile Include="Assets\_Game\Scripts\_GamePlay\Weapons\ForwardBullet.cs" />
+    <Compile Include="Assets\_Game\Scripts\_Manager\NotiManager.cs" />
+    <Compile Include="Assets\_Game\Scripts\VFX\NotiText.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Voxel Arsenal\Shaders\VoxelLitSurface.shader" />
+    <None Include="Assets\NavMeshComponents\ProjectSettings\ProjectVersion.txt" />
     <None Include="Assets\Voxel Arsenal\Shaders\VoxelRimLightSolid.shader" />
   </ItemGroup>
   <ItemGroup>
@@ -771,17 +782,8 @@
     <Reference Include="Unity.VisualScripting.Flow.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Cinemachine">
-      <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Shared.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
@@ -795,9 +797,6 @@
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Model">
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Model.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
     </Reference>
@@ -810,11 +809,11 @@
     <Reference Include="Unity.VisualScripting.State.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
@@ -831,14 +830,8 @@
     <Reference Include="Unity.Rider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TestTools.CodeCoverage.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.State">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
@@ -846,8 +839,46 @@
     <Reference Include="Unity.EditorCoroutines.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Cinemachine">
+      <HintPath>Library\ScriptAssemblies\Cinemachine.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.cinemachine.editor">
+      <HintPath>Library\ScriptAssemblies\com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Shared.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TestTools.CodeCoverage.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.State">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{02D116BA-C954-63B8-3A0D-652CEFD0E773}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
+    <ProjectReference Include="NavMeshComponentsExamples.csproj">
+      <Project>{8499D6CF-062B-AFCB-DD28-B37745B2FA82}</Project>
+      <Name>NavMeshComponentsExamples</Name>
+    </ProjectReference>
+    <ProjectReference Include="NavMeshComponents.csproj">
+      <Project>{B11AC819-F7BB-D754-E69D-53411709244A}</Project>
+      <Name>NavMeshComponents</Name>
+    </ProjectReference>
+    <ProjectReference Include="NavMeshComponentsEditor.csproj">
+      <Project>{13CBC9EB-F256-96DF-4C3F-80F5BCCFCF5F}</Project>
+      <Name>NavMeshComponentsEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="NavMeshComponentsExamplesEditor.csproj">
+      <Project>{A5F8E180-735E-2D62-E08F-DFCAEFAFB269}</Project>
+      <Name>NavMeshComponentsExamplesEditor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

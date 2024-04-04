@@ -46,7 +46,7 @@ public class UIShop : UICanvas
         base.Open();
         SelectBar(shopBars[0]);
         CameraFollow.Ins.ChangeState(GameState.MainMenu);
-        playerCoin.text=(UserData.Ins.coin.ToString());
+        playerCoin.text=(DataManager.Ins.playerData.coin.ToString());
     }
 
     public override void CloseDirectly()
@@ -91,20 +91,6 @@ public class UIShop : UICanvas
         }
 
     }
-
-    //public string GetDataKeys(ShopType shopType)
-    //{
-    //    switch (shopType)
-    //    {
-    //        case ShopType.Hat: return UserData.Keys_Hat_Data;
-    //        case ShopType.Pant: return UserData.Keys_Pant_Data;
-    //        case ShopType.Accessory: return UserData.Keys_Accessory_Data;
-    //        case ShopType.Skin: return UserData.Keys_Skin_Data;
-    //        case ShopType.Weapon: return UserData.Keys_Weapon_Data;
-    //        default: return string.Empty;
-    //    }
-    //}  
-
     public List<ShopData<T>> GetListItems<T>(ShopType shopType) where T : Enum
     {
         switch (shopType)
@@ -123,7 +109,7 @@ public class UIShop : UICanvas
     {
         for (int i = 0; i < items.Count; i++)
         {
-            ShopItem.State state = UserData.Ins.GetEnumData(items[i].type.ToString(), ShopItem.State.Buy);
+            ShopItem.State state = (ShopItem.State)DataManager.Ins.GetItemState(items[i].type);
             ShopItem item = miniPool.Spawn();
             item.SetData(i, items[i], this);
             item.SetState(state);
@@ -136,13 +122,13 @@ public class UIShop : UICanvas
 
         }
     }
-
-    public ShopItem.State GetState(Enum t) => UserData.Ins.GetEnumData(t.ToString(), ShopItem.State.Buy);
+    public ShopItem.State GetState(Enum t) => (ShopItem.State)DataManager.Ins.GetItemState(t);
 
     internal void SelectItem(ShopItem item)
     {
         if (currentItem != null)
         {
+            
             currentItem.SetState(GetState(currentItem.Type));
         }
 
@@ -168,20 +154,16 @@ public class UIShop : UICanvas
 
         LevelManager.Ins.player.TryCloth(shopType, currentItem.Type);
         currentItem.SetState(ShopItem.State.Selecting);
-
-        //check data
         coinTxt.text = item.data.cost.ToString();
-        //adsTxt.text = item.data.ads.ToString();
     }
 
     public void BuyButton()
     {
-        //TODO: check xem du tien hay k
-        if (UserData.Ins.coin >= currentItem.data.cost)
+        if (DataManager.Ins.playerData.coin >= currentItem.data.cost)
         {
-            UserData.Ins.SetEnumData(currentItem.Type.ToString(), ShopItem.State.Bought);
-            UserData.Ins.SetIntData(UserData.Key_Coin,ref UserData.Ins.coin,UserData.Ins.coin - currentItem.data.cost); 
-            playerCoin.text = UserData.Ins.coin.ToString();
+            DataManager.Ins.SetItemState(currentItem.Type, ItemState.Bought);
+            DataManager.Ins.SetData(ref DataManager.Ins.playerData.coin,DataManager.Ins.playerData.coin-currentItem.data.cost);
+            playerCoin.text = DataManager.Ins.playerData.coin.ToString();
         }
             SelectItem(currentItem);
         
@@ -196,27 +178,25 @@ public class UIShop : UICanvas
     {
         if (currentItem != null)
         {
-            UserData.Ins.SetEnumData(currentItem.Type.ToString(), ShopItem.State.Equipped);
-
+            DataManager.Ins.SetItemState(currentItem.Type, ItemState.Equipped);
+          
             switch (shopType)
             {
-                case ShopType.Hat:
-                    //reset trang thai do dang deo ve bought
-                    UserData.Ins.SetEnumData(UserData.Ins.playerHat.ToString(), ShopItem.State.Bought);
-                    //save id do moi vao player
-                    UserData.Ins.SetEnumData(UserData.Key_Player_Hat, ref UserData.Ins.playerHat, (HatName)currentItem.Type);
+                case ShopType.Hat:                  
+                    DataManager.Ins.SetItemState(DataManager.Ins.playerData.playerHat,ItemState.Bought);
+                    DataManager.Ins.SetEnumData(ref DataManager.Ins.playerData.playerHat,(HatName) currentItem.Type);
                     break;
                 case ShopType.Pant:
-                    UserData.Ins.SetEnumData(UserData.Ins.playerPant.ToString(), ShopItem.State.Bought);
-                    UserData.Ins.SetEnumData(UserData.Key_Player_Pant, ref UserData.Ins.playerPant, (PantName)currentItem.Type);
+                    DataManager.Ins.SetItemState(DataManager.Ins.playerData.playerPant, ItemState.Bought);
+                    DataManager.Ins.SetEnumData(ref DataManager.Ins.playerData.playerPant,(PantName) currentItem.Type);
                     break;
                 case ShopType.Shield:
-                    UserData.Ins.SetEnumData(UserData.Ins.playerShield.ToString(), ShopItem.State.Bought);
-                    UserData.Ins.SetEnumData(UserData.Key_Player_Shield, ref UserData.Ins.playerShield, (ShieldName)currentItem.Type);
+                    DataManager.Ins.SetItemState(DataManager.Ins.playerData.playerShield, ItemState.Bought);
+                    DataManager.Ins.SetEnumData(ref DataManager.Ins.playerData.playerShield, (ShieldName)currentItem.Type);
                     break;
-                case ShopType.Skin:
-                    UserData.Ins.SetEnumData(UserData.Ins.playerSkin.ToString(), ShopItem.State.Bought);
-                    UserData.Ins.SetEnumData(UserData.Key_Player_Skin, ref UserData.Ins.playerSkin, (SkinType)currentItem.Type);
+                case ShopType.Skin:                   
+                    DataManager.Ins.SetItemState(DataManager.Ins.playerData.playerSkin, ItemState.Bought);
+                    DataManager.Ins.SetEnumData(ref DataManager.Ins.playerData.playerSkin, (SkinType)currentItem.Type);
                     break;
                 case ShopType.Weapon:
                     break;

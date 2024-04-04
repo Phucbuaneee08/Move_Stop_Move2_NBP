@@ -4,18 +4,17 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-/// <summary>
-/// Attach the script to the off screen indicator panel.
-/// </summary>
+
 [DefaultExecutionOrder(-1)]
 public class OffScreenIndicator : MonoBehaviour
 {
     [Range(0.5f, 0.9f)]
     [Tooltip("Distance offset of the indicators from the centre of the screen")]
     [SerializeField] private float screenBoundOffset = 0.9f;
-
+ 
     [SerializeField] private Camera mainCamera ;
 
+    public string targetName;
     private Vector3 screenCentre;
     private Vector3 screenBounds;
 
@@ -37,10 +36,6 @@ public class OffScreenIndicator : MonoBehaviour
         if(GameManager.Ins.IsState(GameState.GamePlay))
             DrawIndicators();
     }
-
-    /// <summary>
-    /// Draw the indicators on the screen and set thier position and rotation and other properties.
-    /// </summary>
     void DrawIndicators()
     {
         mainCamera = Camera.main;
@@ -56,8 +51,12 @@ public class OffScreenIndicator : MonoBehaviour
                 
                 screenPosition.z = 0;
                 indicator = GetIndicator(ref target.indicator, IndicatorType.BOX); // Gets the box indicator from the pool.
-                if(!target.IsHasName)
-                    indicator.SetName(NameUtilities.GetRandomName());
+                if (!target.IsHasName) {
+                    targetName = NameUtilities.GetRandomName();
+                    indicator.SetName(targetName); 
+                    target.character.characterName = targetName;
+                }
+                    
                 target.IsHasName = true;
                
                 
@@ -79,13 +78,6 @@ public class OffScreenIndicator : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// 1. Add the target to targets list if <paramref name="active"/> is true.
-    /// 2. If <paramref name="active"/> is false deactivate the targets indicator, 
-    ///     set its reference null and remove it from the targets list.
-    /// </summary>
-    /// <param name="target"></param>
-    /// <param name="active"></param>
     private void HandleTargetStateChanged(Target target, bool active)
     {
         if(active)
@@ -100,18 +92,6 @@ public class OffScreenIndicator : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Get the indicator for the target.
-    /// 1. If its not null and of the same required <paramref name="type"/> 
-    ///     then return the same indicator;
-    /// 2. If its not null but is of different type from <paramref name="type"/> 
-    ///     then deactivate the old reference so that it returns to the pool 
-    ///     and request one of another type from pool.
-    /// 3. If its null then request one from the pool of <paramref name="type"/>.
-    /// </summary>
-    /// <param name="indicator"></param>
-    /// <param name="type"></param>
-    /// <returns></returns>
     private Indicator GetIndicator(ref Indicator indicator, IndicatorType type)
     {
         if(indicator != null)

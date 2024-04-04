@@ -39,6 +39,7 @@ public class CameraFollow : Singleton<CameraFollow>
 
     void LateUpdate()
     {
+        offset = Vector3.Lerp(offset, targetOffset, Time.deltaTime * moveSpeed);
         transform.position = Vector3.Lerp(transform.position, player.position + targetOffset, Time.deltaTime * moveSpeed);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotate, Time.deltaTime * moveSpeed);
     }

@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 1235365206365386198}
   m_Layer: 0
   m_Name: Hammer_Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -164,4 +164,4 @@ MonoBehaviour:
   rb: {fileID: 5287007530891547792}
   owner: {fileID: 0}
   sprite: {fileID: 8205354671549134784}
-  rotateSpeed: 800
+  rotateSpeed: 600

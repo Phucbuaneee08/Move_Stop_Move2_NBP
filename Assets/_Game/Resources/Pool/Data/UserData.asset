@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: UserData
   m_EditorClassIdentifier: 
   level: 0
-  coin: 10000
+  coin: 2500
   soundIsOn: 0
   vibrate: 0
   removeAds: 0
   tutorialed: 0
   playerWeapon: 11
-  playerHat: 28
-  playerPant: 3
-  playerSkin: 22
+  playerHat: 32
+  playerPant: 0
+  playerSkin: 26
   playerShield: 40
   isTest: 0

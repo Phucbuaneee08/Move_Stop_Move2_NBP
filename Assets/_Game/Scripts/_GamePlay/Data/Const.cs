@@ -9,7 +9,7 @@ public class Const
     public const string BOT_TAG = "Bot";
     public const string OBSTACLE_TAG = "Obstacle";
     public const string CHARACTER_TAG = "Character";
-
+    public const string BULLET_TAG = "Bullet";
     public const string ANIM_IDLE = "idle";
     public const string ANIM_DEAD = "dead";
     public const string ANIM_RUN = "run";

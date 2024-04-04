@@ -21,6 +21,8 @@ public class Character : AbstractCharacter
     [SerializeField] private Transform characterSprite;
     // properties for character
 
+    public Booster.BoosterType BoosterType { get;  set; }
+    public bool IsHavingBooster { get;  set; }
     public int scalePoint;
     private int score;
     private float size = 1;
@@ -62,7 +64,7 @@ public class Character : AbstractCharacter
     {
         IsDead = true;
         ChangeAnim(Const.ANIM_DEAD);
-        LevelManager.Ins.CharacterDeath(this);
+        LevelManager.Ins.OnDeadEvent(this);
         if (currentAttacker.CheckTarget(this))
         {
             currentAttacker.RemoveTarget(this);
@@ -175,6 +177,7 @@ public class Character : AbstractCharacter
 
     public void OnHit()
     {
+        NotiManager.Ins.PopUpWindow(this.characterName, currentAttacker.characterName);
         if (currentAttacker.CheckTarget(this))
         {
             currentAttacker.RemoveTarget(this);
@@ -197,13 +200,13 @@ public class Character : AbstractCharacter
         ParticlePool.Play(Utilities.RandomInMember(ParticleType.LevelUp_1, ParticleType.LevelUp_2, ParticleType.LevelUp_3), TF.position);
     }
 
-    public void SetPoint(int point)
+    public virtual void SetPoint(int point)
     {
         scalePoint += Const.POINT_UNIT;
         score += Const.SCORE_UNIT;
         if (scalePoint % 2 == 0)
         {
-            ScaleUp(1 + scalePoint / 2 * 0.2f);
+            ScaleUp(1 + scalePoint / 2 * 0.1f);
         }
 
     }

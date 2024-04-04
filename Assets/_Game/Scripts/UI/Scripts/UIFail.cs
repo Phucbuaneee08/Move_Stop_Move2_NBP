@@ -15,8 +15,11 @@ public class UIFail : UICanvas
     }
     public void HomeButton()
     {
-        UserData.Ins.coin += coin;
-        UserData.Ins.SetIntData(UserData.Key_Coin, ref UserData.Ins.coin, UserData.Ins.coin);
+
+        //UserData.Ins.coin += coin;
+        //UserData.Ins.SetIntData(UserData.Key_Coin, ref UserData.Ins.coin, UserData.Ins.coin);
+        DataManager.Ins.playerData.coin += coin;
+        DataManager.Ins.SetData(ref DataManager.Ins.playerData.coin, DataManager.Ins.playerData.coin);
         LevelManager.Ins.Home();
      
     }
@@ -28,8 +31,8 @@ public class UIFail : UICanvas
     }
     public void X3Button()
     {
-        UserData.Ins.coin += coin * 3;
+        DataManager.Ins.playerData.coin += coin * 3;
         LevelManager.Ins.Home();
-        UserData.Ins.SetIntData(UserData.Key_Coin, ref UserData.Ins.coin, UserData.Ins.coin);
+        DataManager.Ins.SetData(ref DataManager.Ins.playerData.coin, DataManager.Ins.playerData.coin);
     }
 }

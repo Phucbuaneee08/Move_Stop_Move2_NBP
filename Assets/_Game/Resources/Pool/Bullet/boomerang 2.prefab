@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -2453303193107261165}
   m_Layer: 0
   m_Name: boomerang 2
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80,7 +80,7 @@ MonoBehaviour:
   rb: {fileID: 5898215416774371105}
   owner: {fileID: 0}
   sprite: {fileID: 5582713967372585199}
-  rotateSpeed: 800
+  rotateSpeed: 600
 --- !u!1001 &7422039718262604311
 PrefabInstance:
   m_ObjectHideFlags: 0

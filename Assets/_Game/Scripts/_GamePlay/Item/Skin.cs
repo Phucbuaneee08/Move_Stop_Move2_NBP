@@ -31,7 +31,6 @@ public class Skin : GameUnit
    ********************************/
     public void ChangePant(PantName pantName)
     {
-        
         pantRenderer.material = pantData.GetMat(pantName);
     }
     public void ChangeWeapon(WeaponName weaponName)

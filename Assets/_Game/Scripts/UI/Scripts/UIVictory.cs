@@ -21,8 +21,10 @@ public class UIVictory : UICanvas
     }
     public void HomeButton()
     {
-        UserData.Ins.coin += coin;
-        UserData.Ins.SetIntData(UserData.Key_Coin, ref UserData.Ins.coin, UserData.Ins.coin);
+        //UserData.Ins.coin += coin;
+        //UserData.Ins.SetIntData(UserData.Key_Coin, ref UserData.Ins.coin, UserData.Ins.coin);
+        DataManager.Ins.playerData.coin += coin;
+        DataManager.Ins.SetData(ref DataManager.Ins.playerData.coin, DataManager.Ins.playerData.coin);
         LevelManager.Ins.Home();
     }
     public void SetCoin(int coin)
@@ -34,9 +36,8 @@ public class UIVictory : UICanvas
     public void X3Button()
     {
         LevelManager.Ins.Home();
-        UserData.Ins.coin += coin*3;
-        UserData.Ins.SetIntData(UserData.Key_Coin, ref UserData.Ins.coin, UserData.Ins.coin);
-        
+        DataManager.Ins.playerData.coin += 3*coin;
+        DataManager.Ins.SetData(ref DataManager.Ins.playerData.coin, DataManager.Ins.playerData.coin);
     }
 
 }

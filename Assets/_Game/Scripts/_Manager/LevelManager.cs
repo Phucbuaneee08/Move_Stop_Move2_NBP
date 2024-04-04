@@ -1,20 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Booster;
 
 public class LevelManager : Singleton<LevelManager>
 {
     public Player player;
 
     [SerializeField]private List<Bot> bots = new List<Bot>();
+    [SerializeField]private List<Booster> boosters = new List<Booster>();
 
     [SerializeField] Level[] levels;
     public Level currentLevel;
-
+    private const float BOOSTER_INTERVAL = 10f;
     private int totalBot;
     private bool isRevive;
 
     private int levelIndex;
+    private float countBooster;
 
     public int TotalCharater => totalBot + bots.Count + 1;
 
@@ -24,6 +27,16 @@ public class LevelManager : Singleton<LevelManager>
         levelIndex = 0;
         OnLoadLevel(levelIndex);
         OnInit();
+    }
+    private void Update()
+    {
+        if (!GameManager.Ins.IsState(GameState.GamePlay)) return;
+        countBooster += Time.deltaTime;
+        if (countBooster > BOOSTER_INTERVAL)
+        {
+            DropBooster(RandomPoint() + new Vector3(0,10,0));
+            countBooster = 0;
+        }
     }
 
     public void OnInit()
@@ -38,16 +51,19 @@ public class LevelManager : Singleton<LevelManager>
         totalBot = currentLevel.botTotal - currentLevel.botReal - 1;
 
         isRevive = false;
-
-        //SetTargetIndicatorAlpha(0);
     }
 
     public void OnReset()
     {
         player.OnDespawn();
+        NotiManager.Ins.OnDespawn();
         for (int i = 0; i < bots.Count; i++)
         {
             bots[i].OnDespawn();
+        }
+        for(int i = 0; i < boosters.Count; i++)
+        {
+            SimplePool.Despawn(boosters[i]);
         }
 
         bots.Clear();
@@ -108,18 +124,13 @@ public class LevelManager : Singleton<LevelManager>
         bot.OnInit();
         bot.ChangeState(state);
         bots.Add(bot);
-
-        //bot.SetScore(player.Score > 0 ? Random.Range(player.Score - 7, player.Score + 7) : 1);
     }
    
-    public void CharacterDeath(Character c)
+    public void OnDeadEvent(Character c)
     {
         if (c is Player)
         {
-            //Fail();
             UIManager.Ins.CloseAll();
-
-            //revive
             if (!isRevive)
             {
                 isRevive = true;
@@ -143,26 +154,7 @@ public class LevelManager : Singleton<LevelManager>
             {
                 Victory();
             }
-            
-
-            //if (GameManager.Ins.IsState(GameState.Revive) || GameManager.Ins.IsState(GameState.Setting))
-            //{
-            //    NewBot(Utilities.Chance(50, 100) ? new IdleState() : new PatrolState());
-            //}
-            //else
-            //{
-            //    if (totalBot > 0)
-            //    {
-            //        totalBot--;
-            //        NewBot(Utilities.Chance(50, 100) ? new IdleState() : new PatrolState());
-            //    }
-
-            //    if (bots.Count == 0)
-            //    {
-            //        Victory();
-            //    }
-            //}
-
+ 
         }
 
         UIManager.Ins.GetUI<UIGameplay>().UpdatePlayerRemain();
@@ -209,6 +201,12 @@ public class LevelManager : Singleton<LevelManager>
     {
         player.TF.position = RandomPoint();
         player.OnRevive();
+    }
+    public void DropBooster(Vector3 pos)
+    {
+        //_type = Utilities.RandomEnumValue<BoosterType>();
+        Booster newBooster = SimplePool.Spawn<Booster>(PoolType.Booster, pos, Quaternion.identity) ;
+        boosters.Add(newBooster);
     }
 
     //public void SetTargetIndicatorAlpha(float alpha)

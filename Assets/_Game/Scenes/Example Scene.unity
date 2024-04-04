@@ -265,7 +265,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5b56d9fa0e8bd6e409ed188db38a692c, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.16470589}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -340,6 +340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenBoundOffset: 0.9
   mainCamera: {fileID: 0}
+  targetName: 
 --- !u!114 &286989979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -570,7 +571,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -622,7 +623,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1128328563}
   m_LocalRotation: {x: 0.2718331, y: 0.5245417, z: -0.20521581, w: 0.7802879}
-  m_LocalPosition: {x: 0, y: 7.86, z: -6.82}
+  m_LocalPosition: {x: -39, y: 45.5, z: -6.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -737,8 +738,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1441014907}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.7751993, y: 7.833172, z: 1.4548492}
+  m_LocalRotation: {x: -0.05065808, y: 0.03549262, z: -0.0015714229, w: -0.99808395}
+  m_LocalPosition: {x: 1.8411355, y: 2.636649, z: -25.845905}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -794,14 +795,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1469025068}
-  m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
-  m_LocalPosition: {x: 0, y: 15, z: -15}
+  m_LocalRotation: {x: 0.5, y: 0, z: 0, w: 0.8660254}
+  m_LocalPosition: {x: 0, y: 15, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1441014910}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 60, y: 0, z: 0}
 --- !u!1 &1609450935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1015,12 +1016,12 @@ MonoBehaviour:
   weaponData: {fileID: 11400000, guid: 4c8dfd4226a967441a3534cc7094d583, type: 2}
   currentWeaponType: {fileID: 0}
   boxIndicator: {fileID: 0}
-  scalePoint: 0
   characterSprite: {fileID: 0}
+  scalePoint: 0
   targets: []
   currentTarget: {fileID: 0}
   isWeaponActive: 0
-  moveSpeed: 250
+  moveSpeed: 5
   rb: {fileID: 1865667597}
   variableJoystick: {fileID: 0}
 --- !u!1 &1871014135
@@ -1131,8 +1132,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1865667599}
   bots: []
+  boosters: []
   levels:
-  - {fileID: 3789594262363657740, guid: d26e685a3de07904d85710db33da49fe, type: 3}
+  - {fileID: 8869739634786713049, guid: 20997798843eb684eb58d7f1ed58f30a, type: 3}
   currentLevel: {fileID: 0}
 --- !u!1 &1928389292
 GameObject:
@@ -1269,11 +1271,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1355688821947922647, guid: 653399f637b5b4a4e82914f9f24c0345, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -56.72
       objectReference: {fileID: 0}
     - target: {fileID: 1355688821947922647, guid: 653399f637b5b4a4e82914f9f24c0345, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.373
+      value: -0.01
       objectReference: {fileID: 0}
     - target: {fileID: 1355688821947922647, guid: 653399f637b5b4a4e82914f9f24c0345, type: 3}
       propertyPath: m_LocalPosition.z

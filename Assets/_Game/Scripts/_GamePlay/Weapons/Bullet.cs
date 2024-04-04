@@ -27,6 +27,7 @@ public class Bullet : GameUnit
     protected virtual void OnMoveStop() { }
     private void OnTriggerEnter(Collider other)
     {
+        
         Character crt = other.GetComponent<Character>();
         if (other.CompareTag(Const.CHARACTER_TAG) && crt!=owner && !crt.IsDead && isCanRunning)
         {

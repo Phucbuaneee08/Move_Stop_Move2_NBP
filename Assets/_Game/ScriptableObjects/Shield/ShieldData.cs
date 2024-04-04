@@ -8,7 +8,8 @@ namespace Scriptable
 {
     public enum ShieldName
     {
-        Khien = PoolType.ACC_Shield
+        Khien = PoolType.ACC_Shield,
+        Captain = PoolType.ACC_Captain
     }
 
     [CreateAssetMenu(fileName = "ShieldData", menuName = "ScriptableObjects/Data/ShieldData", order = 1)]

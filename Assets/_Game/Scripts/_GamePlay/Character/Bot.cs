@@ -16,7 +16,7 @@ public class Bot : Character
     private Vector3 randomDirection3D;
     private Vector2 randomDirection2D;
     private int randomDistance;
-
+    
 
     private bool IsCanRunning => (GameManager.Ins.IsState(GameState.GamePlay) || GameManager.Ins.IsState(GameState.Revive) || GameManager.Ins.IsState(GameState.Setting));
 

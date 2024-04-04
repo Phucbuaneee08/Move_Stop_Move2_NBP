@@ -4,17 +4,18 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SocialPlatforms.Impl;
 
 public class Player : Character
 {
-    [SerializeField] private float moveSpeed = 300f;
+    [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private Rigidbody rb;
     public VariableJoystick variableJoystick;
     private Vector3 moveVector;
     private Vector3 direction;
     private float rotateSpeed = 10f;
-
+ 
     SkinType skinType = SkinType.Normal;
     WeaponName weaponName = WeaponName.Boomerang;
     HatName hatName = HatName.Arrow;
@@ -41,7 +42,9 @@ public class Player : Character
                 IsCanAttack = true;
                 ChangeAnim(Const.ANIM_RUN);
                 transform.rotation = Quaternion.LookRotation(direction);
-                rb.velocity = direction * moveSpeed * Time.deltaTime;
+                Vector3 targetPosition = transform.position + direction;
+               
+                rb.MovePosition(rb.position + direction * moveSpeed * Time.deltaTime);
             }
             else
             {
@@ -57,6 +60,7 @@ public class Player : Character
     }
     public override void OnInit()
     {
+        characterName = "You";
         OnTakeUserData();
         base.OnInit();
         ScaleUp(1); // set player default size 
@@ -128,13 +132,20 @@ public class Player : Character
         ChangeWeapon(weaponName);
         ChangeShield(shieldName);
     }
+   
     public void OnTakeUserData()
     {
-        weaponName = UserData.Ins.playerWeapon;
-        hatName = UserData.Ins.playerHat;
-        skinType = UserData.Ins.playerSkin;
-        pantName = UserData.Ins.playerPant;
-        shieldName = UserData.Ins.playerShield;
+        weaponName = DataManager.Ins.playerData.playerWeapon;
+        hatName = DataManager.Ins.playerData.playerHat;
+        skinType = DataManager.Ins.playerData.playerSkin;
+        pantName = DataManager.Ins.playerData.playerPant;
+        shieldName = DataManager.Ins.playerData.playerShield;
+    
+    }
+    public override void SetPoint(int point)
+    {
+        base.SetPoint(point);
+        SimplePool.Spawn<FlyCoin>(PoolType.VFX_FlyCoin, transform.parent);
     }
 
     public void TryCloth(UIShop.ShopType shopType, Enum type)
