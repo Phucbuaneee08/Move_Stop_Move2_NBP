@@ -225,8 +225,6 @@ public class Character : AbstractCharacter
     }
     public virtual void SpeedUp()
     {
-        
-        ParticlePool.Play(Utilities.RandomInMember(ParticleType.SpeedUp), TF);
         Invoke(nameof(ResetSpeed), 5f);
     }
     public virtual void ResetSpeed() {

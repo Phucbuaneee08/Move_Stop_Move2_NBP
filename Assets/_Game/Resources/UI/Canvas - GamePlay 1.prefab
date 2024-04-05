@@ -867,6 +867,7 @@ MonoBehaviour:
   IsDestroyOnClose: 0
   variableJoystick: {fileID: 1630260836528025260}
   playerRemain: {fileID: 3974592391256970266}
+  content: {fileID: 6870951661109477766}
 --- !u!1 &5271024630653390782
 GameObject:
   m_ObjectHideFlags: 0

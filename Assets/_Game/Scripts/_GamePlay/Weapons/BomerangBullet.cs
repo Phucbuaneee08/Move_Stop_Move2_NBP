@@ -52,6 +52,7 @@ public class BomerangBullet : Bullet
     {
         base.OnMoveStop();
         isCanRunning = false;
+        Invoke(nameof(OnDespawn), 5f);
     }
 
 }

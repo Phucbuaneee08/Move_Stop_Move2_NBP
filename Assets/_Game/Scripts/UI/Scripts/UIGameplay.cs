@@ -7,6 +7,7 @@ public class UIGameplay : UICanvas
 {
     [SerializeField] private VariableJoystick variableJoystick;
     [SerializeField] private Text playerRemain;
+    [SerializeField] private Transform content;
 
     // Start is called before the first frame update
     public override void Setup()
@@ -16,6 +17,7 @@ public class UIGameplay : UICanvas
     }
     public override void Open()
     {
+
         SetVariableJoyStick();
         GameManager.Ins.ChangeState(GameState.GamePlay);
         base.Open();
