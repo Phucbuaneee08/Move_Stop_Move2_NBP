@@ -7,10 +7,15 @@ public class Booster : GameUnit
 {
  
     private BoosterType _type;
-   public enum BoosterType { 
+    private void OnEnable()
+    {
+        _type = Utilities.RandomEnumValue<BoosterType>();
+    }
+    public enum BoosterType { 
         Booster_Shield=PoolType.Booster_Shield,
-        Booster_X3= PoolType.Booster_X3,
-        Booster_UpRange = PoolType.Booster_UpRange
+        //Booster_X3= PoolType.Booster_X3,
+        //Booster_UpRange = PoolType.Booster_UpRange,
+        Booster_Speed = PoolType.Booster_Speed
     }
    public void DropBooster(Vector3 pos)
     {
@@ -20,7 +25,6 @@ public class Booster : GameUnit
     private void OnCollisionEnter(Collision collision)
     {
 
-        _type = BoosterType.Booster_Shield;
         Character crt = collision.gameObject.GetComponent<Character>();
         if (collision.gameObject.CompareTag(Const.CHARACTER_TAG))
         {
@@ -29,6 +33,10 @@ public class Booster : GameUnit
             if (_type == BoosterType.Booster_Shield)
             {
                 InitShield(crt);
+            }
+            if(_type == BoosterType.Booster_Speed)
+            {
+                crt.SpeedUp();
             }
             SimplePool.Despawn(this);
         }

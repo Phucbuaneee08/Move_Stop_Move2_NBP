@@ -223,7 +223,11 @@ public class Character : AbstractCharacter
     {
         return localScale;
     }
-
+    public virtual void SpeedUp()
+    {
+        Invoke(nameof(ResetSpeed), 5f);
+    }
+    public virtual void ResetSpeed() { }
     /********************************
               Change Item
     ********************************/

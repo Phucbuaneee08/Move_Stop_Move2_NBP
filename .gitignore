@@ -1,0 +1,31 @@
+# Bỏ qua các tệp và thư mục tạm thời được tạo ra bởi Unity
+/[Ll]ibrary/
+/[Tt]emp/
+/[Oo]bj/
+/[Bb]uild/
+/[Bb]uilds/
+/[Ll]ogs/
+/[Uu]ser[Ss]ettings/
+
+# Bỏ qua các tệp cài đặt
+*.sln
+*.csproj
+*.pidb
+*.userprefs
+
+# Bỏ qua các tệp tạm thời
+*.booproj
+*.svd
+*.suo
+*.tmp
+*.user
+*.userosscache
+*.sln.docstates
+
+# Bỏ qua các tệp meta của Unity
+*.meta
+
+# Bỏ qua các tệp của IDE hoặc trình biên dịch cụ thể
+/[Vv]isual[Ss]tudio[Ss]tate/
+/.vscode/
+*.pidb.meta

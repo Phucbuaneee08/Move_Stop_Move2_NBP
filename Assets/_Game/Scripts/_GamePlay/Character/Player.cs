@@ -9,7 +9,7 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class Player : Character
 {
-    [SerializeField] private float moveSpeed = 5f;
+    [SerializeField] private float moveSpeed = 300f;
     [SerializeField] private Rigidbody rb;
     public VariableJoystick variableJoystick;
     private Vector3 moveVector;
@@ -23,7 +23,7 @@ public class Player : Character
     ShieldName shieldName = ShieldName.Khien;
     private bool IsCanUpdate => GameManager.Ins.IsState(GameState.GamePlay) || GameManager.Ins.IsState(GameState.Setting);
 
-    public void FixedUpdate()
+    public void Update()
     {
         Move();
     }
@@ -43,8 +43,10 @@ public class Player : Character
                 ChangeAnim(Const.ANIM_RUN);
                 transform.rotation = Quaternion.LookRotation(direction);
                 Vector3 targetPosition = transform.position + direction;
-               
+                
+                //rb.velocity = direction * moveSpeed * Time.deltaTime;
                 rb.MovePosition(rb.position + direction * moveSpeed * Time.deltaTime);
+                TF.position = rb.position;
             }
             else
             {
@@ -132,7 +134,18 @@ public class Player : Character
         ChangeWeapon(weaponName);
         ChangeShield(shieldName);
     }
-   
+    public override void SpeedUp()
+    {
+        base.SpeedUp();
+        this.moveSpeed = Const.PLAYER_SPEED + 5f;
+    }
+    public override void ResetSpeed()
+    {
+        base.ResetSpeed();
+        moveSpeed = Const.PLAYER_SPEED;
+
+    }
+
     public void OnTakeUserData()
     {
         weaponName = DataManager.Ins.playerData.playerWeapon;

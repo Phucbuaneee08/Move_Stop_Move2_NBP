@@ -110,6 +110,18 @@ public class Bot : Character
         SimplePool.Despawn(this);
 
     }
+    public override void SpeedUp()
+    {
+      
+        agent.speed = 5f;
+        base.SpeedUp();
+    }
+    public override void ResetSpeed()
+    {
+        base.ResetSpeed();
+        agent.speed = Const.BOT_SPEED;
+
+    }
 
     public virtual void ChangeState(IState state)
     {

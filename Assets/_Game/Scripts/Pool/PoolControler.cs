@@ -203,7 +203,8 @@ public enum PoolType
     Booster_X3, 
     Booster_UpRange,
     Booster,
-    NotiText
+    NotiText,
+    Booster_Speed
 }
 
 

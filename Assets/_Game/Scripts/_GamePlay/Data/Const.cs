@@ -16,6 +16,7 @@ public class Const
     public const string ANIM_ULTI = "ulti";
     public const string ANIM_ATTACK = "attack";
     public const string ANIM_DANCE = "dance";
+    
 
     public const string NEXT_PLATFORM = "NPlatform";
     public const string WIN_PLATFORM = "WPlatform";
@@ -27,6 +28,7 @@ public class Const
     public const float DELAY_ATTACK = 0.2f; // Delay attack after Animation of character 
     public const float ATT_RANGE = 5f;
     public const float BOT_SPEED = 3.5f;
+    public const float PLAYER_SPEED = 5f;
 
     public const int SCORE_UNIT = 50;
     public const int POINT_UNIT = 1;

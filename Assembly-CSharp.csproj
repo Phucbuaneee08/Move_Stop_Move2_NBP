@@ -107,10 +107,12 @@
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\DynamicJoystick.cs" />
     <Compile Include="Assets\_Game\Scripts\_Manager\GameManager.cs" />
     <Compile Include="Assets\Pixel Play\Scripts\OffScreenIndicator\OffScreenIndicator.cs" />
+    <Compile Include="Assets\_Game\Scripts\_Manager\NotiManager.cs" />
     <Compile Include="Assets\FreeForkLift\Scripts\ForkController.cs" />
     <Compile Include="Assets\_Game\Scripts\_GamePlay\Character\AttackRange.cs" />
     <Compile Include="Assets\_Game\Scripts\UI\UIManager.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Base\Joystick.cs" />
+    <Compile Include="Assets\_Game\Scripts\VFX\NotiText.cs" />
     <Compile Include="Assets\_Game\Scripts\_GamePlay\Item\Hat.cs" />
     <Compile Include="Assets\_Game\Scripts\_GamePlay\Weapons\WeaponShopRotate.cs" />
     <Compile Include="Assets\_Game\Scripts\_GamePlay\Cache.cs" />
@@ -152,8 +154,6 @@
     <Compile Include="Assets\_Game\Scripts\_GamePlay\Booster\Booster.cs" />
     <Compile Include="Assets\_Game\Scripts\_GamePlay\Character\Player.cs" />
     <Compile Include="Assets\_Game\Scripts\_GamePlay\Weapons\ForwardBullet.cs" />
-    <Compile Include="Assets\_Game\Scripts\_Manager\NotiManager.cs" />
-    <Compile Include="Assets\_Game\Scripts\VFX\NotiText.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Voxel Arsenal\Shaders\VoxelLitSurface.shader" />
