@@ -1,6 +1,10 @@
 
 using UnityEngine;
 using System.Collections.Generic;
+using System;
+using UnityEditor;
+using static UnityEditor.PlayerSettings;
+using UnityEngine.UIElements;
 
 
 public static class ParticlePool
@@ -111,6 +115,22 @@ public static class ParticlePool
             obj.transform.position = pos;
             obj.Play();
         }
+        public void Play(Transform parent)
+        {
+            index = index + 1 < inactive.Count ? index + 1 : 0;
+            ParticleSystem obj = inactive[index];
+
+            if (obj.isPlaying)
+            {
+                obj = (ParticleSystem)GameObject.Instantiate(prefab, m_sRoot);
+                obj.Stop();
+                inactive.Insert(index, obj);
+            }
+
+            obj.transform.position = parent.position;
+            obj.transform.parent = parent;
+            obj.Play();
+        }
 
         public void Release()
         {
@@ -194,4 +214,44 @@ public static class ParticlePool
     {
         shortcuts.Add(particleType, particleSystem);
     }
+
+
+
+
+
+
+
+    static public void Play(ParticleType particleType, Transform parent)
+    {
+#if UNITY_EDITOR
+        if (!shortcuts.ContainsKey(particleType))
+        {
+            Debug.LogError(particleType + " is nees install at pool container!!!");
+        }
+#endif
+
+        Play(shortcuts[particleType], parent);
+    }
+    static public void Play(ParticleSystem prefab, Transform parent)
+    {
+#if UNITY_EDITOR
+        if (prefab == null)
+        {
+            Debug.LogError(prefab.name + " is null!");
+            return;
+        }
+#endif
+
+        if (!pools.ContainsKey(prefab.GetInstanceID()))
+        {
+            Transform newRoot = new GameObject("VFX_" + prefab.name).transform;
+            newRoot.SetParent(Root);
+            pools[prefab.GetInstanceID()] = new Pool(prefab, 10, newRoot);
+        }
+        
+
+        pools[prefab.GetInstanceID()].Play(parent);
+    }
+   
+
 }

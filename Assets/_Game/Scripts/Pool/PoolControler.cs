@@ -145,6 +145,8 @@ public enum ParticleType
     LevelUp_1,
     LevelUp_2,
     LevelUp_3,
+
+    SpeedUp,
 }
 
 public enum PoolType

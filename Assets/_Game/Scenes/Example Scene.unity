@@ -1207,6 +1207,10 @@ MonoBehaviour:
     particleType: 5
     prefab: {fileID: 198653806844278688, guid: 327462d9554858a43b7550920b9bc9c0, type: 3}
     amount: 10
+  - root: {fileID: 1292148814}
+    particleType: 6
+    prefab: {fileID: 198035771847681936, guid: 579365cd679e0ee4993d0f2f33af1f3b, type: 3}
+    amount: 10
 --- !u!1 &2143756657 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1355688822227635624, guid: 653399f637b5b4a4e82914f9f24c0345, type: 3}
